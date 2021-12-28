@@ -1,11 +1,11 @@
-const { cdktf } = require("projen");
+const { cdktf } = require('projen');
 const project = new cdktf.ConstructLibraryCdktf({
-  author: "Daniel Schmidt",
-  authorAddress: "danielmschmidt92@gmail.com",
-  cdktfVersion: "0.4.0",
-  defaultReleaseBranch: "main",
-  name: "cdktf-local-exec",
-  repositoryUrl: "https://github.com/danielmschmidt92/cdktf-local-exec.git",
+  author: 'Daniel Schmidt',
+  authorAddress: 'danielmschmidt92@gmail.com',
+  cdktfVersion: '0.4.0',
+  defaultReleaseBranch: 'main',
+  name: 'cdktf-local-exec',
+  repositoryUrl: 'https://github.com/danielmschmidt92/cdktf-local-exec.git',
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */

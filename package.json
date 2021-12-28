@@ -40,27 +40,26 @@
     "@typescript-eslint/parser": "^5",
     "cdktf": "0.4.0",
     "constructs": "10.0.0",
-    "eslint-import-resolver-node": "*",
-    "eslint-import-resolver-typescript": "*",
-    "eslint-plugin-import": "*",
     "eslint": "^8",
-    "jest": "*",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "jest": "^27.4.5",
     "jest-junit": "^13",
-    "jsii": "*",
-    "jsii-diff": "*",
-    "jsii-docgen": "*",
-    "json-schema": "*",
+    "jsii": "^1.50.0",
+    "jsii-diff": "^1.50.0",
+    "jsii-docgen": "^4.2.22",
+    "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
-    "projen": "*",
+    "projen": "^0.46.3",
     "standard-version": "^9",
-    "ts-jest": "*",
-    "typescript": "*"
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.5.4"
   },
   "peerDependencies": {
     "cdktf": "^0.4.0",
     "constructs": "^10"
   },
-  "dependencies": {},
   "bundledDependencies": [],
   "keywords": [
     "cdk"
