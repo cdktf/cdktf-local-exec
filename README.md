@@ -7,7 +7,11 @@ The construct uses the null provider to achieve this so it can be trusted to onl
 ## Usage
 
 ```ts
-import { LocalExec } from "cdktf-local-exec";
+import { Provider, LocalExec } from "cdktf-local-exec";
+
+// LocalExec extends from the null provider,
+// so if you already have the provider initialized you can skip this step
+new Provider(this, "local-exec");
 
 const frontend = new LocalExec(this, "frontend-build", {
   // Will copy this into an asset directory
