@@ -28,7 +28,7 @@ new LocalExec(this, "frontend-upload", {
 
 new LocalExec(this, "backend-build", {
   cwd: "/path/to/project/backend",
-  forceLocal: true, // can not run remotely since the runner has no docker access
+  copyBeforeRun: false, // can not run remotely since the runner has no docker access
   command: "docker build -t foo . && docker push foo",
 });
 ```
@@ -37,4 +37,4 @@ new LocalExec(this, "backend-build", {
 
 - `cwd`: The working directory to run the command in. It will be copied before execution to ensure the asset can be used in a remote execution environment.
 - `command`: The command to execute.
-- `forceLocal`: If true, the command will be executed locally without copying the working directory to a temporary directory.
+- `copyBeforeRun`: If true, the command will be executed locally without copying the working directory to a temporary directory.

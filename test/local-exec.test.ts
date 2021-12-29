@@ -60,7 +60,7 @@ describe("LocalExec", () => {
       new LocalExec(stack, "myresource", {
         command: `cp ${__filename} test.txt`,
         cwd: __dirname,
-        forceLocal: false,
+        copyBeforeRun: false,
       });
     });
 
@@ -72,13 +72,13 @@ describe("LocalExec", () => {
     expect(fs.existsSync(path.resolve(__dirname, "test.txt"))).toBe(false);
   });
 
-  test("runs command inside working directory if forceLocal is true", () => {
+  test("runs command inside working directory if copyBeforeRun is true", () => {
     // Create a file in the working directory
     apply((stack) => {
       new LocalExec(stack, "test", {
         command: `cp origin.txt test.txt`,
         cwd: testdir,
-        forceLocal: true,
+        copyBeforeRun: true,
       });
     });
 
@@ -90,13 +90,13 @@ describe("LocalExec", () => {
       const dep = new LocalExec(stack, "dep", {
         command: `sleep 1 && echo "dep" > dep.txt`,
         cwd: testdir,
-        forceLocal: true,
+        copyBeforeRun: true,
       });
 
       new LocalExec(stack, "test", {
         command: `cp dep.txt test.txt`,
         cwd: testdir,
-        forceLocal: true,
+        copyBeforeRun: true,
         dependsOn: [dep],
       });
     });
@@ -115,7 +115,7 @@ describe("LocalExec", () => {
       const waiter = new LocalExec(stack, "timer", {
         command: `sleep 3`,
         cwd: __dirname,
-        forceLocal: false,
+        copyBeforeRun: false,
       });
       const password = new rand.Password(stack, "password", {
         length: passwordLength,
@@ -125,7 +125,7 @@ describe("LocalExec", () => {
       new LocalExec(stack, "passwordwriter", {
         command: `echo "${password.result}" > test.txt`,
         cwd: __dirname,
-        forceLocal: false,
+        copyBeforeRun: false,
       });
     });
 

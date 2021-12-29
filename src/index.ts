@@ -29,16 +29,16 @@ export interface LocalExecOptions {
   /**
    * The working directory to run the command in.
    * Defaults to process.pwd().
-   * If forceLocal is unset it will copy the working directory to an asset directory.
+   * If copyBeforeRun is set to true it will copy the working directory to an asset directory and take that as the base to run.
    */
   readonly cwd: string;
 
   /**
    * If set to true, the working directory will be copied to an asset directory.
    *
-   * @default false
+   * @default true
    */
-  readonly forceLocal?: boolean;
+  readonly copyBeforeRun?: boolean;
 }
 
 export { NullProvider as Provider } from "@cdktf/provider-null";
@@ -49,12 +49,12 @@ export class LocalExec extends Resource {
     super(scope, id, config);
 
     const workingDir =
-      config.forceLocal === true
-        ? config.cwd
-        : new TerraformAsset(this, "workingDir", {
+      config.copyBeforeRun === true
+        ? new TerraformAsset(this, "workingDir", {
             path: config.cwd,
             type: AssetType.DIRECTORY,
-          }).path;
+          }).path
+        : config.cwd;
 
     this.cwd = workingDir;
     this.addOverride("provisioner", [
