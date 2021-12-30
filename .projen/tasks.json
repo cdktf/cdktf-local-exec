@@ -122,10 +122,10 @@
       "description": "Creates the distribution package",
       "steps": [
         {
-          "exec": "mkdir -p dist/js"
+          "exec": "mkdir -p dist"
         },
         {
-          "exec": "mv $(npm pack) dist/js/"
+          "exec": "rsync -a . dist --exclude .git --exclude node_modules"
         }
       ]
     },
@@ -146,7 +146,7 @@
           "exec": "jsii_version=$(node -p \"JSON.parse(fs.readFileSync('.jsii')).jsiiVersion.split(' ')[0]\")"
         },
         {
-          "exec": "npx jsii-pacmak@$jsii_version -v --outdir $PWD/dist --target js"
+          "exec": "npx jsii-pacmak@$jsii_version -v --target js"
         }
       ]
     },
@@ -258,7 +258,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdktf constructs eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii jsii-diff jsii-docgen json-schema npm-check-updates standard-version ts-jest typescript cdktf constructs @cdktf/provider-null"
+          "exec": "yarn upgrade @cdktf/provider-null @cdktf/provider-random @dschmidt/cdktf-construct-base @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdktf constructs eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii jsii-diff jsii-docgen json-schema npm-check-updates standard-version ts-jest typescript @cdktf/provider-null cdktf constructs"
         },
         {
           "exec": "npx projen"
