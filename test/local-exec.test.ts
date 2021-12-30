@@ -52,6 +52,10 @@ describe("LocalExec", () => {
     try {
       fs.rmdirSync(testdir, { recursive: true });
     } catch (e) {}
+
+    try {
+      fs.unlinkSync(path.resolve(__dirname, "test.txt"));
+    } catch (e) {}
   });
 
   test("runs command inside copy of working directory", () => {
@@ -60,11 +64,9 @@ describe("LocalExec", () => {
       new LocalExec(stack, "myresource", {
         command: `cp ${__filename} test.txt`,
         cwd: __dirname,
-        copyBeforeRun: false,
+        copyBeforeRun: true,
       });
     });
-
-    console.log(outdir);
 
     const workingDir = workingDirectoryForAsset(outdir, "myresource");
 
@@ -72,13 +74,13 @@ describe("LocalExec", () => {
     expect(fs.existsSync(path.resolve(__dirname, "test.txt"))).toBe(false);
   });
 
-  test("runs command inside working directory if copyBeforeRun is true", () => {
+  test("runs command inside working directory if copyBeforeRun is false", () => {
     // Create a file in the working directory
     apply((stack) => {
       new LocalExec(stack, "test", {
         command: `cp origin.txt test.txt`,
         cwd: testdir,
-        copyBeforeRun: true,
+        copyBeforeRun: false,
       });
     });
 
@@ -90,13 +92,13 @@ describe("LocalExec", () => {
       const dep = new LocalExec(stack, "dep", {
         command: `sleep 1 && echo "dep" > dep.txt`,
         cwd: testdir,
-        copyBeforeRun: true,
+        copyBeforeRun: false,
       });
 
       new LocalExec(stack, "test", {
         command: `cp dep.txt test.txt`,
         cwd: testdir,
-        copyBeforeRun: true,
+        copyBeforeRun: false,
         dependsOn: [dep],
       });
     });
