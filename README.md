@@ -37,4 +37,4 @@ new LocalExec(this, "backend-build", {
 
 - `cwd`: The working directory to run the command in. It will be copied before execution to ensure the asset can be used in a remote execution environment.
 - `command`: The command to execute.
-- `copyBeforeRun`: If true, the command will be executed locally without copying the working directory to a temporary directory.
+- `copyBeforeRun`: If true, the command will copy the `cwd` directory into a tmp dir and run there. If false, the command will be executed in the `cwd` directory.
