@@ -138,4 +138,21 @@ describe('LocalExec', () => {
       fs.readFileSync(path.resolve(workingDir, 'test.txt'), 'utf8').length,
     ).toBe(passwordLength + EOL_CHARS);
   });
+
+  test('command can be overwritten', () => {
+    // Create a file in the stack directory
+    const outdir = apply((stack) => {
+      const exec = new LocalExec(stack, 'myresource', {
+        command: 'ls -la',
+        cwd: __dirname,
+        copyBeforeRun: true,
+      });
+      exec.command = `cp ${__filename} test.txt`;
+    });
+
+    const workingDir = workingDirectoryForAsset(outdir, 'myresource');
+
+    expect(fs.existsSync(path.resolve(workingDir, 'test.txt'))).toBe(true);
+    expect(fs.existsSync(path.resolve(__dirname, 'test.txt'))).toBe(false);
+  });
 });

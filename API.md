@@ -44,7 +44,18 @@ new LocalExec(scope: Construct, id: string, config: LocalExecOptions)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| [`command`](#cdktflocalexeclocalexecpropertycommand)<span title="Required">*</span> | `string` | *No description.* |
 | [`cwd`](#cdktflocalexeclocalexecpropertycwd)<span title="Required">*</span> | `string` | *No description.* |
+
+---
+
+##### `command`<sup>Required</sup> <a name="cdktf-local-exec.LocalExec.property.command" id="cdktflocalexeclocalexecpropertycommand"></a>
+
+```typescript
+public readonly command: string;
+```
+
+- *Type:* `string`
 
 ---
 

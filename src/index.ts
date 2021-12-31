@@ -3,6 +3,7 @@ import {
   AssetType,
   IResolvable,
   ITerraformDependable,
+  Lazy,
   TerraformAsset,
   TerraformProvider,
   TerraformResourceLifecycle,
@@ -45,6 +46,8 @@ export { NullProvider as Provider } from '@cdktf/provider-null';
 
 export class LocalExec extends Resource {
   public cwd: string;
+  public command: string;
+
   constructor(scope: Construct, id: string, config: LocalExecOptions) {
     super(scope, id, config);
 
@@ -57,11 +60,16 @@ export class LocalExec extends Resource {
         : config.cwd;
 
     this.cwd = workingDir;
+    this.command = config.command;
+
     this.addOverride('provisioner', [
       {
         'local-exec': {
           working_dir: workingDir,
-          command: config.command,
+          command: Lazy.stringValue({
+            // TODO: wrap command to capture stdout and stderr
+            produce: () => this.command,
+          }),
         },
       },
     ]);
