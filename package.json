@@ -37,13 +37,13 @@
   "devDependencies": {
     "@cdktf/provider-null": "0.4.90",
     "@cdktf/provider-random": "0.0.5",
-    "@dschmidt/cdktf-construct-base": "0.0.1",
+    "@dschmidt/cdktf-construct-base": "0.0.5",
     "@types/jest": "*",
     "@types/node": "^12",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "cdktf": "0.8.3",
-    "constructs": "10.0.12",
+    "cdktf": "0.8.5",
+    "constructs": "10.0.25",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^2.5.0",
@@ -62,8 +62,8 @@
   },
   "peerDependencies": {
     "@cdktf/provider-null": ">=0.4.90",
-    "cdktf": "^0.8.3",
-    "constructs": "^10.0.12"
+    "cdktf": "^0.8.5",
+    "constructs": "^10.0.25"
   },
   "bundledDependencies": [],
   "keywords": [

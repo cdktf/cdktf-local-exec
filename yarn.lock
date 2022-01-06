@@ -296,10 +296,10 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.0.5.tgz#672b72c09b2af74147d427a4c7bd113d64c76959"
   integrity sha512-PNmO50XqxPlmW6gLbIZLJneVGA9BKQRSmKyGr+V5uyvcD8LAn0HsILDCG2voINBw2RVsNh+fTzpeqfomnWgj5g==
 
-"@dschmidt/cdktf-construct-base@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.1.tgz#5db9680641fa6d0685ad444aae82a104df322577"
-  integrity sha512-mkbg9o8Tn9HWhdnC2i2FUFzKjW9q/8w7WfPTwL22OVFnlsscl/fYidWtg9bdU4JSo7OzS0zZDHMLKMo5ZPhu5Q==
+"@dschmidt/cdktf-construct-base@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.5.tgz#e1161d2478e706695b679d54fbabc5675683bcd1"
+  integrity sha512-hf1c+aDyYU5FgHze7a1WnwGQ5y4pivfMe8Qz5h2HPGUXCJ5CYZhv9H5YmI8bi1BEjo3mouXNelJhhNuou6RGvw==
   dependencies:
     projen "^0.46.9"
 
@@ -1381,10 +1381,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdktf@0.8.3:
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/cdktf/-/cdktf-0.8.3.tgz#ace1fc9f06f83c88c2c392b83b8b6fd911b8ccb1"
-  integrity sha512-XW1bmmZ71OslgcCpmippWJOzdL1prJ1rTVADk4AKN+cw0s8udJ/FDJJVdfwH0ZMvFtU82ha+epOIHO8GJjSPHA==
+cdktf@0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/cdktf/-/cdktf-0.8.5.tgz#a255bc7c97b59bc73ae34b7f9ed5cd15816786bb"
+  integrity sha512-EaSffxBQ3uzPshw2bFp2eDatOpi/KDNgYklGvUzp8na2T2jvAo0GDk2LT+Ut6TdevzXIjtcxMm/Vn6QDHCc3Jw==
   dependencies:
     archiver "5.3.0"
 
@@ -1589,10 +1589,10 @@ console-control-strings@^1.0.0, console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-constructs@10.0.12:
-  version "10.0.12"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.12.tgz#64f314d87f7cdf6da127c9eb0bf6a3d990989c4a"
-  integrity sha512-wVQcQgwwK7b//7yI54/3hundmXAw7RBpuy5f6yIBFNceJr8feTK6Cs2I2f3+gp3/ikszzTouLup9AzxioEEXPQ==
+constructs@10.0.25:
+  version "10.0.25"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.25.tgz#c2f03fb4da134105fdf5382f4c1557b89d90aeeb"
+  integrity sha512-QxY4A7caIW1tI5ztbdZHKU/nWXiqluujmEVj5xCVhFhoBgOqU4ja3z3zXY4DUn2nf+PLxCjulf+viQ/h9RXB8A==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.13"

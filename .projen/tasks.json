@@ -192,6 +192,9 @@
       "description": "Run tests",
       "steps": [
         {
+          "exec": "rm -rf dist"
+        },
+        {
           "exec": "jest --passWithNoTests --all --updateSnapshot"
         },
         {
