@@ -121,6 +121,7 @@ describe('LocalExec', () => {
       });
       const password = new rand.Password(stack, 'password', {
         length: passwordLength,
+        special: false,
         dependsOn: [waiter],
       });
 
@@ -133,6 +134,7 @@ describe('LocalExec', () => {
 
     const workingDir = workingDirectoryForAsset(outdir, 'passwordwriter');
 
+    console.log(fs.readFileSync(path.resolve(workingDir, 'test.txt'), 'utf8'));
     expect(fs.existsSync(path.resolve(workingDir, 'test.txt'))).toBe(true);
     expect(
       fs.readFileSync(path.resolve(workingDir, 'test.txt'), 'utf8').length,
