@@ -291,17 +291,17 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.4.90.tgz#e53d75b7ab2a087af2bc708f661e29ab19938407"
   integrity sha512-/zkrUDTAWje5fo/AeqF1xly03lGfl/OGtVt3gm53hIU+Zq8m2WeYa05xb8sVVnqkRt1orVfpsHS+71l3gJNYbg==
 
-"@cdktf/provider-random@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.0.5.tgz#672b72c09b2af74147d427a4c7bd113d64c76959"
-  integrity sha512-PNmO50XqxPlmW6gLbIZLJneVGA9BKQRSmKyGr+V5uyvcD8LAn0HsILDCG2voINBw2RVsNh+fTzpeqfomnWgj5g==
+"@cdktf/provider-random@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.0.6.tgz#b5b8a140dbd12fe31cd08cd1a2e2a79601904c9d"
+  integrity sha512-lKuMWLDkoMF0YEhmx3q+nztS0uTOB6mpdClGDgDjJcOFa7m4o9i0MGT4Fnxoku6aTl+ZPwsuEt2FEYhNxDPUqA==
 
-"@dschmidt/cdktf-construct-base@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.5.tgz#e1161d2478e706695b679d54fbabc5675683bcd1"
-  integrity sha512-hf1c+aDyYU5FgHze7a1WnwGQ5y4pivfMe8Qz5h2HPGUXCJ5CYZhv9H5YmI8bi1BEjo3mouXNelJhhNuou6RGvw==
+"@dschmidt/cdktf-construct-base@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.6.tgz#2fdb9303fe88d909af3786952090aa1ac4f29cdc"
+  integrity sha512-lzCHLrv7zSpCsQiDyEKA5eplQsVtNtaByiWkHA0cBxUfTYbL9RXpF7DTfAwsWLyW2Uo34q6go40aw7vzpccuEg==
   dependencies:
-    projen "^0.46.9"
+    projen "^0.50.9"
 
 "@eslint/eslintrc@^1.0.5":
   version "1.0.5"
@@ -2185,6 +2185,11 @@ escodegen@^2.0.0:
   optionalDependencies:
     source-map "~0.6.1"
 
+eslint-config-prettier@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
+  integrity sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew==
+
 eslint-import-resolver-node@^0.3.6:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.6.tgz#4048b958395da89668252001dbd9eca6b83bacbd"
@@ -2231,6 +2236,13 @@ eslint-plugin-import@^2.25.3:
     object.values "^1.1.5"
     resolve "^1.20.0"
     tsconfig-paths "^3.11.0"
+
+eslint-plugin-prettier@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-4.0.0.tgz#8b99d1e4b8b24a762472b4567992023619cb98e0"
+  integrity sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==
+  dependencies:
+    prettier-linter-helpers "^1.0.0"
 
 eslint-scope@^5.1.1:
   version "5.1.1"
@@ -2393,6 +2405,11 @@ fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
   integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
+
+fast-diff@^1.1.2:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
+  integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
 
 fast-glob@^3.1.1:
   version "3.2.7"
@@ -4886,6 +4903,18 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
+prettier-linter-helpers@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/prettier-linter-helpers/-/prettier-linter-helpers-1.0.0.tgz#d23d41fe1375646de2d0104d3454a3008802cf7b"
+  integrity sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==
+  dependencies:
+    fast-diff "^1.1.2"
+
+prettier@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
+  integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
+
 pretty-format@^27.0.0, pretty-format@^27.4.2:
   version "27.4.2"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-27.4.2.tgz#e4ce92ad66c3888423d332b40477c87d1dac1fb8"
@@ -4929,10 +4958,10 @@ projen@^0.46.3:
     yaml "^1.10.2"
     yargs "^16.2.0"
 
-projen@^0.46.9:
-  version "0.46.9"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.46.9.tgz#9acd723c56afcc865a141820dc76e0302eadbb91"
-  integrity sha512-tYTWrvvhXltZ/KhunuNquu75fM9nUfyH97V6Xo/payf8c14L0/B4e68TI59jOGYIONL7Uazk2l3buCk+ZgqCjw==
+projen@^0.50.9:
+  version "0.50.9"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.50.9.tgz#66e24d010ac3bcebf5f212fa2a885ba66a6f0f22"
+  integrity sha512-ZEpoPxFrV2LsrSxCl9iA2x9kBFIWBUsCCgfAZPjP6JUvkMQYR3xYn9FS6Fcv60FZ1e7pRfpp6L7DE7cJZ3j9CQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"

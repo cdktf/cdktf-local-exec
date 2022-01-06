@@ -36,8 +36,8 @@
   },
   "devDependencies": {
     "@cdktf/provider-null": "0.4.90",
-    "@cdktf/provider-random": "0.0.5",
-    "@dschmidt/cdktf-construct-base": "0.0.5",
+    "@cdktf/provider-random": "0.0.6",
+    "@dschmidt/cdktf-construct-base": "0.0.6",
     "@types/jest": "*",
     "@types/node": "^12",
     "@typescript-eslint/eslint-plugin": "^5",
@@ -45,9 +45,11 @@
     "cdktf": "0.8.5",
     "constructs": "10.0.25",
     "eslint": "^8",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.4.5",
     "jest-junit": "^13",
     "jsii": "^1.50.0",
@@ -55,6 +57,7 @@
     "jsii-docgen": "^4.2.22",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
+    "prettier": "^2.5.1",
     "projen": "^0.46.3",
     "standard-version": "^9",
     "ts-jest": "^27.1.2",
@@ -65,7 +68,6 @@
     "cdktf": "^0.8.5",
     "constructs": "^10.0.25"
   },
-  "bundledDependencies": [],
   "keywords": [
     "cdk",
     "cdktf"
@@ -75,8 +77,8 @@
   "version": "0.0.0",
   "jest": {
     "testMatch": [
-      "**/__tests__/**/*.ts?(x)",
-      "**/?(*.)+(spec|test).ts?(x)"
+      "<rootDir>/src/**/__tests__/**/*.ts?(x)",
+      "<rootDir>/(test|src)/**/?(*.)+(spec|test).ts?(x)"
     ],
     "clearMocks": true,
     "collectCoverage": true,
@@ -88,10 +90,12 @@
     ],
     "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [
-      "/node_modules/"
+      "/node_modules/",
+      "dist"
     ],
     "testPathIgnorePatterns": [
-      "/node_modules/"
+      "/node_modules/",
+      "dist"
     ],
     "watchPathIgnorePatterns": [
       "/node_modules/"

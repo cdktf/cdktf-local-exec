@@ -1,4 +1,4 @@
-import { Resource } from '@cdktf/provider-null';
+import { Resource } from "@cdktf/provider-null";
 import {
   AssetType,
   IResolvable,
@@ -7,8 +7,8 @@ import {
   TerraformAsset,
   TerraformProvider,
   TerraformResourceLifecycle,
-} from 'cdktf';
-import { Construct } from 'constructs';
+} from "cdktf";
+import { Construct } from "constructs";
 
 export interface LocalExecOptions {
   // From the null ResourceConfig
@@ -16,10 +16,10 @@ export interface LocalExecOptions {
   readonly provider?: TerraformProvider;
   readonly lifecycle?: TerraformResourceLifecycle;
   readonly triggers?:
-  | {
-    [key: string]: string;
-  }
-  | IResolvable;
+    | {
+        [key: string]: string;
+      }
+    | IResolvable;
 
   // Specific to LocalExec
   /**
@@ -42,7 +42,7 @@ export interface LocalExecOptions {
   readonly copyBeforeRun?: boolean;
 }
 
-export { NullProvider as Provider } from '@cdktf/provider-null';
+export { NullProvider as Provider } from "@cdktf/provider-null";
 
 export class LocalExec extends Resource {
   public cwd: string;
@@ -53,18 +53,18 @@ export class LocalExec extends Resource {
 
     const workingDir =
       config.copyBeforeRun === true
-        ? new TerraformAsset(this, 'workingDir', {
-          path: config.cwd,
-          type: AssetType.DIRECTORY,
-        }).path
+        ? new TerraformAsset(this, "workingDir", {
+            path: config.cwd,
+            type: AssetType.DIRECTORY,
+          }).path
         : config.cwd;
 
     this.cwd = workingDir;
     this.command = config.command;
 
-    this.addOverride('provisioner', [
+    this.addOverride("provisioner", [
       {
-        'local-exec': {
+        "local-exec": {
           working_dir: workingDir,
           command: Lazy.stringValue({
             // TODO: wrap command to capture stdout and stderr
