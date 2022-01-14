@@ -7,12 +7,10 @@
     },
     {
       "name": "@cdktf/provider-random",
-      "version": "0.0.6",
       "type": "build"
     },
     {
       "name": "@dschmidt/cdktf-construct-base",
-      "version": "0.0.6",
       "type": "build"
     },
     {
