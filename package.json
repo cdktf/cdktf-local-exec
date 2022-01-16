@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@cdktf/provider-null": "0.4.90",
-    "@cdktf/provider-random": "0.0.13",
+    "@cdktf/provider-random": "0.0.14",
     "@dschmidt/cdktf-construct-base": "0.0.13",
     "@types/jest": "^27.4.0",
     "@types/node": "^12",
@@ -56,7 +56,7 @@
     "jest-junit": "^13",
     "jsii": "^1.52.1",
     "jsii-diff": "^1.52.1",
-    "jsii-docgen": "^4.2.40",
+    "jsii-docgen": "^4.2.41",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
     "prettier": "^2.5.1",
