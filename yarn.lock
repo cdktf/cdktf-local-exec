@@ -291,15 +291,15 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.4.90.tgz#e53d75b7ab2a087af2bc708f661e29ab19938407"
   integrity sha512-/zkrUDTAWje5fo/AeqF1xly03lGfl/OGtVt3gm53hIU+Zq8m2WeYa05xb8sVVnqkRt1orVfpsHS+71l3gJNYbg==
 
-"@cdktf/provider-random@0.0.18":
-  version "0.0.18"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.0.18.tgz#dbb7416c0b2be24da02d69df02ba646ef376ffbc"
-  integrity sha512-IGznJRjQimOQPKUc+ZCfiPV3BYUIcBndR30DgQTyeusS2KF8Z9gGlO2VlE7XLoFys8J9QKNrI2l6rPuLUO+Bcw==
+"@cdktf/provider-random@0.0.19":
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.0.19.tgz#35b08955e25beeedc2bb8632d88c1ef18c50b5da"
+  integrity sha512-dN/CkquGaH6yQ+d0j69/bYGPlP4UfbF9VApR065s5wzuGiscTeqwcnNQIUpu30Hb/c7JNrnGE57uwuRHkFOGfA==
 
-"@dschmidt/cdktf-construct-base@0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.15.tgz#27eec96c85ef3393eba06ecee01c3b844077acc8"
-  integrity sha512-ZlZPBklmX7SwhpfW82q5k21PHG4sRci3RS2BiE4SAvh4cv2WdVr+TQlTJMxc2dJjq8P3O1vPtoXSnMrUj0uvlw==
+"@dschmidt/cdktf-construct-base@0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.16.tgz#cdf7c4f4d6129216743382ca47fb07fa7b6822f5"
+  integrity sha512-eNXprfrT4euKO6tJRKiiD5BTam7VKBh7ffkkY/R7l01395NS8gwM9usjzj9AkRBVJN4JbQUWrHxqyzpcgxBI3g==
   dependencies:
     projen "^0.50.9"
 
@@ -4427,9 +4427,9 @@ npm-bundled@^1.1.1:
     npm-normalize-package-bin "^1.0.1"
 
 npm-check-updates@^12:
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-12.1.0.tgz#bf316bc35f90817880df9de175f2d69755eb9ff5"
-  integrity sha512-9GtSetBvcth7MuL+0MpOmWgdfiEgZcWRfnvoYnNZxbZpleHZCT0Z3HnbsL6/EAT2M+ye7FTZ+YjmDmZptt7Rkg==
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-12.2.0.tgz#f332fff0df44fcc23d84ced192370a4480ad1e7f"
+  integrity sha512-upiHqivxtjtj/iHO7Amnd+Q5Nx5HzTwxMlu9lUzNFQvCAAFhJnPK8Weuoyz3OSwErpHVxJMry7W5d0H7Cokxdg==
   dependencies:
     chalk "^4.1.2"
     cint "^8.2.1"
@@ -5814,10 +5814,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^4.5.4:
-  version "4.5.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.4.tgz#a17d3a0263bf5c8723b9c52f43c5084edf13c2e8"
-  integrity sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg==
+typescript@^4.5.5:
+  version "4.5.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.5.tgz#d8c953832d28924a9e3d37c73d729c846c5896f3"
+  integrity sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==
 
 typescript@~3.9.10:
   version "3.9.10"
