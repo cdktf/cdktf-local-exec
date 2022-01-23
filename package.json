@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@cdktf/provider-null": "0.4.90",
-    "@cdktf/provider-random": "0.0.20",
+    "@cdktf/provider-random": "0.0.21",
     "@dschmidt/cdktf-construct-base": "0.0.16",
     "@types/jest": "^27.4.0",
     "@types/node": "^12",
