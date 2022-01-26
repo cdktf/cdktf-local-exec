@@ -190,7 +190,7 @@ const localExecOptions: LocalExecOptions = { ... }
 | [`dependsOn`](#cdktflocalexeclocalexecoptionspropertydependson) | [`cdktf.ITerraformDependable`](#cdktf.ITerraformDependable)[] | *No description.* |
 | [`lifecycle`](#cdktflocalexeclocalexecoptionspropertylifecycle) | [`cdktf.TerraformResourceLifecycle`](#cdktf.TerraformResourceLifecycle) | *No description.* |
 | [`provider`](#cdktflocalexeclocalexecoptionspropertyprovider) | [`cdktf.TerraformProvider`](#cdktf.TerraformProvider) | *No description.* |
-| [`triggers`](#cdktflocalexeclocalexecoptionspropertytriggers) | {[ key: string ]: `string`} \| [`cdktf.IResolvable`](#cdktf.IResolvable) | *No description.* |
+| [`triggers`](#cdktflocalexeclocalexecoptionspropertytriggers) | {[ key: string ]: `string`} | *No description.* |
 
 ---
 
@@ -266,10 +266,10 @@ public readonly provider: TerraformProvider;
 ##### `triggers`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecOptions.property.triggers" id="cdktflocalexeclocalexecoptionspropertytriggers"></a>
 
 ```typescript
-public readonly triggers: {[ key: string ]: string} | IResolvable;
+public readonly triggers: {[ key: string ]: string};
 ```
 
-- *Type:* {[ key: string ]: `string`} | [`cdktf.IResolvable`](#cdktf.IResolvable)
+- *Type:* {[ key: string ]: `string`}
 
 ---
 

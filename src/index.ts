@@ -1,7 +1,6 @@
 import { Resource } from "@cdktf/provider-null";
 import {
   AssetType,
-  IResolvable,
   ITerraformDependable,
   Lazy,
   TerraformAsset,
@@ -15,11 +14,9 @@ export interface LocalExecOptions {
   readonly dependsOn?: ITerraformDependable[];
   readonly provider?: TerraformProvider;
   readonly lifecycle?: TerraformResourceLifecycle;
-  readonly triggers?:
-    | {
-        [key: string]: string;
-      }
-    | IResolvable;
+  readonly triggers?: {
+    [key: string]: string;
+  };
 
   // Specific to LocalExec
   /**
