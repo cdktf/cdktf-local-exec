@@ -291,10 +291,10 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.5.0.tgz#0c5fedf493d3fc96939f04c732324e3c280279c2"
   integrity sha512-3ddce0k4xmaYEai+nzBSknu1gA0m4ANlDGHCUF+DiRQlh4epdZlzHwcZg6Z2MUuURKia7XcRCWyZIs5B9I8sMw==
 
-"@cdktf/provider-random@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.0.tgz#617223fe2ed2b7b3d1fd5657b29f64491abb2120"
-  integrity sha512-sZ+N6pUiBCBV1oxlarkyRei5LA27bwCuhp3ebOR3wRZYs5ZI78JYi7e7Nxip6+iVWGlMho3zOTgoL7acQbo1Yw==
+"@cdktf/provider-random@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.1.tgz#3701cd0836dab990df6fb78ade5d315ffd6ebb81"
+  integrity sha512-iQLLT/T7qGnSazaULgDSFYcisTzLPXrm4aqKMMG1/P98Nnfgf9qUzmqWCKkZqWev4Izv4HJDtaxJxL37yiSCXg==
 
 "@dschmidt/cdktf-construct-base@0.0.18":
   version "0.0.18"
