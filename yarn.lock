@@ -298,15 +298,15 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.5.0.tgz#0c5fedf493d3fc96939f04c732324e3c280279c2"
   integrity sha512-3ddce0k4xmaYEai+nzBSknu1gA0m4ANlDGHCUF+DiRQlh4epdZlzHwcZg6Z2MUuURKia7XcRCWyZIs5B9I8sMw==
 
-"@cdktf/provider-random@0.1.25":
-  version "0.1.25"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.25.tgz#c0a974339e97c324745f5e53fc86f4d45e0aaf9e"
-  integrity sha512-joxzsfprAr7Xyxb30U9N37t3OUt0mtq92N/SdrmZWWaUvZJqtxnAsaYuypnIv92rEmwaKHgu4eWC7mqOiVtk8g==
+"@cdktf/provider-random@0.1.26":
+  version "0.1.26"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.26.tgz#d4c91349d8df1eee48f8a325f4846d6b0c460461"
+  integrity sha512-xVW4BDW64NAyasdUa4FTu2OtJCiroo1R0lBYllLWtmrcTGXpWkaLPQKhp0cA2yBbs0CGreHoWpy53vojHwBqBA==
 
-"@dschmidt/cdktf-construct-base@0.0.41":
-  version "0.0.41"
-  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.41.tgz#d6952cd77bd9c26110c8ccd3c6862cff24398ad8"
-  integrity sha512-kA0ukoPeQvWAavcDcnFCxxsqJrixpQicXYV9AJYNejD12IrMjxikJH5w61+122z++wchjSRzLyeGqV4TEt/ZpQ==
+"@dschmidt/cdktf-construct-base@0.0.42":
+  version "0.0.42"
+  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.42.tgz#4f4e79c372c94932a9f3dd695792a7d051273276"
+  integrity sha512-4WNjpebaeILKx+RJJ/germQKKtdnVdkBGFTUqFznKG170C548I8ymh6ObS2FihMyc59zzTwoTecut7eK/GmesA==
   dependencies:
     projen "^0.50.9"
 
@@ -1298,9 +1298,9 @@ browser-process-hrtime@^1.0.0:
   integrity sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow==
 
 browserslist@^4.17.5:
-  version "4.19.2"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.19.2.tgz#9ba98791192a39e1242f0670bb265ceee1baf0a4"
-  integrity sha512-97XU1CTZ5TwU9Qy/Taj+RtiI6SQM1WIhZ9osT7EY0oO2aWXGABZT2OZeRL+6PfaQsiiMIjjwIoYFPq4APgspgQ==
+  version "4.19.3"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.19.3.tgz#29b7caad327ecf2859485f696f9604214bedd383"
+  integrity sha512-XK3X4xtKJ+Txj8G5c30B4gsm71s69lqXlkYui4s6EkKxuv49qjYlY6oVd+IFJ73d4YymtM3+djvvt/R/iJwwDg==
   dependencies:
     caniuse-lite "^1.0.30001312"
     electron-to-chromium "^1.4.71"
@@ -2212,10 +2212,10 @@ escodegen@^2.0.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^8.3.0:
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
-  integrity sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew==
+eslint-config-prettier@^8.4.0:
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.4.0.tgz#8e6d17c7436649e98c4c2189868562921ef563de"
+  integrity sha512-CFotdUcMY18nGRo5KGsnNxpznzhkopOcOo0InID+sgQssPrzjvsyKZPvOgymTFeHrFuC3Tzdf2YndhXtULK9Iw==
 
 eslint-import-resolver-node@^0.3.6:
   version "0.3.6"
