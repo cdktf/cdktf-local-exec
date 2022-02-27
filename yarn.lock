@@ -298,15 +298,15 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.5.0.tgz#0c5fedf493d3fc96939f04c732324e3c280279c2"
   integrity sha512-3ddce0k4xmaYEai+nzBSknu1gA0m4ANlDGHCUF+DiRQlh4epdZlzHwcZg6Z2MUuURKia7XcRCWyZIs5B9I8sMw==
 
-"@cdktf/provider-random@0.1.32":
-  version "0.1.32"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.32.tgz#958c7016bc6a6e825a5f534bb97e8fc62661d708"
-  integrity sha512-yyhQZnpmUSYEoOB1j7vxJmpsr6CADbVt3MNcOZ6y3O5JOp4E2k2UVYISLC5ZslirWYSXBj0avga3xU/1qBIbnw==
+"@cdktf/provider-random@0.1.33":
+  version "0.1.33"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.33.tgz#b640c3374ec9132c5aaf13bcd5c7ebcd74a2ec53"
+  integrity sha512-aVwIxBi4MtgTaRgMp6q/wM1L034fkVDGFY9CbNukWG4h63wvlzDCC/nQsQ+05XsmHDY1vXpDZAr3eB3Zc/X5nQ==
 
-"@dschmidt/cdktf-construct-base@0.0.48":
-  version "0.0.48"
-  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.48.tgz#6b364ada138b076f65dabc7e9b120b94cc81cdbe"
-  integrity sha512-xJDr3WRnA/xo1H0rrRn8/3cxA7b6V8TceZRKaRB9VpurU3A5QiiuZPJ2yEjBp/KVCmxPiahlYv7FuVRZL5RO0Q==
+"@dschmidt/cdktf-construct-base@0.0.49":
+  version "0.0.49"
+  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.49.tgz#4a60fa8d4a3537280781b84c2c936e7f8b63a735"
+  integrity sha512-70OjXSbVeAsjFyB+R5D8u+KiVtAcc3MbCFXWSQYukNPK+JauzwuIBVP776cofleUBL4zQ/ifwBqGTDH5hJd9Pw==
   dependencies:
     projen "^0.50.9"
 
@@ -5937,9 +5937,9 @@ typescript@~3.9.10:
   integrity sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==
 
 uglify-js@^3.1.4:
-  version "3.15.1"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.15.1.tgz#9403dc6fa5695a6172a91bc983ea39f0f7c9086d"
-  integrity sha512-FAGKF12fWdkpvNJZENacOH0e/83eG6JyVQyanIJaBXCN1J11TUQv1T1/z8S+Z0CG0ZPk1nPcreF/c7lrTd0TEQ==
+  version "3.15.2"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.15.2.tgz#1ed2c976f448063b1f87adb68c741be79959f951"
+  integrity sha512-peeoTk3hSwYdoc9nrdiEJk+gx1ALCtTjdYuKSXMTDqq7n1W7dHPqWDdSi+BPL0ni2YMeHD7hKUSdbj3TZauY2A==
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
