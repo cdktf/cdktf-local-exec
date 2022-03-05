@@ -298,15 +298,15 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.5.0.tgz#0c5fedf493d3fc96939f04c732324e3c280279c2"
   integrity sha512-3ddce0k4xmaYEai+nzBSknu1gA0m4ANlDGHCUF+DiRQlh4epdZlzHwcZg6Z2MUuURKia7XcRCWyZIs5B9I8sMw==
 
-"@cdktf/provider-random@0.1.38":
-  version "0.1.38"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.38.tgz#f7370250431fbbf4367a20b7cc9194e341cbf366"
-  integrity sha512-/DSs6Us6wm2xY/oU1IISZF5eGtUzM9wplZ7vbU1tDu1NrJn5GroOMblxvU9srqR8jZLL81VnlfdFPuNM669nww==
+"@cdktf/provider-random@0.1.39":
+  version "0.1.39"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.39.tgz#5a89495b50671ef70d7471fb715ad0f400ea40bb"
+  integrity sha512-Pe8yJj+9Cjk8TuQ4ZwjQ4bulCUwu0apVyKVxVxw5cFKbns2dzXxcl6JQIAYzH2DnurWp2pzOgIfwERVq5BlAzQ==
 
-"@dschmidt/cdktf-construct-base@0.0.53":
-  version "0.0.53"
-  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.53.tgz#58751d31448217ec98463734b7af88176445856f"
-  integrity sha512-sx93SDwN5eby3xTKPu+E8tRT7IgJFj06xYCMaF6JlkvwK7D0E52LVQhYVctSkQBOh4ZV5N/+JM5pyme4X1ovtg==
+"@dschmidt/cdktf-construct-base@0.0.54":
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.54.tgz#a77f606cb88d0700cb77c13288caf5f61d39ceaf"
+  integrity sha512-G6J+l48kZJlcmakaoN65H96LdXKnqwdi8eUkWIqle7Engj9S+wR8LA1lLcw5tGMQhaE5BucLGRGECz57JmqLwQ==
   dependencies:
     projen "^0.50.9"
 
@@ -1415,9 +1415,9 @@ camelcase@^6.2.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001312:
-  version "1.0.30001312"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001312.tgz#e11eba4b87e24d22697dae05455d5aea28550d5f"
-  integrity sha512-Wiz1Psk2MEK0pX3rUzWaunLTZzqS2JYZFzNKqAiJGiuxIjRPLgV6+VDPOg6lQOUxmDwhTlh198JsTTi8Hzw6aQ==
+  version "1.0.30001313"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001313.tgz#a380b079db91621e1b7120895874e2fd62ed2e2f"
+  integrity sha512-rI1UN0koZUiKINjysQDuRi2VeSCce3bYJNmDcj3PIKREiAmjakugBul1QSkg/fPrlULYl6oWfGg3PbgOSY9X4Q==
 
 case@^1.6.3:
   version "1.6.3"
