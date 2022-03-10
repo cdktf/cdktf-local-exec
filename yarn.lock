@@ -298,15 +298,15 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.5.0.tgz#0c5fedf493d3fc96939f04c732324e3c280279c2"
   integrity sha512-3ddce0k4xmaYEai+nzBSknu1gA0m4ANlDGHCUF+DiRQlh4epdZlzHwcZg6Z2MUuURKia7XcRCWyZIs5B9I8sMw==
 
-"@cdktf/provider-random@0.1.43":
-  version "0.1.43"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.43.tgz#ed0b6567bbfcf382f26705b561433513166bab20"
-  integrity sha512-VH2l6CI7brN3+VpS+sLqoxOQvOlIdE3miiTR9Ti1QyNTxNrZMoEcue+1Fe8Ah4gl2Dx7GWHRU2PGR6x/vRe78A==
+"@cdktf/provider-random@0.1.44":
+  version "0.1.44"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.44.tgz#1f23e156685bc4fdcc746402f3e1a6b1d88b9d20"
+  integrity sha512-OWLGXBZNG52ywEWdvB0+ge1II9waWjCM21KmU/qu8Gz6UcIfmPaXFzBa6Qb1PgnvE9dnNBuqfFbLWWZ+d6IkpA==
 
-"@dschmidt/cdktf-construct-base@0.0.58":
-  version "0.0.58"
-  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.58.tgz#515e0e4ef4b394eb51c0faccd719655b9e49d042"
-  integrity sha512-BtKq794AWJwUZPTxAGgkMDd5hqbpA9RyZR/78Otb/uA8Xy3ci/6vJyE9foDrADqtT8m/zGf1wTIH2rCkYBJPLQ==
+"@dschmidt/cdktf-construct-base@0.0.59":
+  version "0.0.59"
+  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.59.tgz#edc420a2a3e187c99cebb925eeb7a65645ed7d20"
+  integrity sha512-g2UeOSksOfV/ECP0aAcjz33Ks5rZiIEa5kQ9FH7CjL+OobubBCWbNPhpbwAaPPGiuaN8WaX2YIYB2t9d0ynqEQ==
   dependencies:
     projen "^0.50.9"
 
@@ -2076,9 +2076,9 @@ duplexer3@^0.1.4:
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
 
 electron-to-chromium@^1.4.76:
-  version "1.4.77"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.77.tgz#c26e454cb8721d4ebdae3e276c57cd32e51c32ed"
-  integrity sha512-fiDxw8mO9Ph1Z0bjX2sFTPpi0J0QkOiwOJF+5Q0J0baNc/F9lLePAvDPlnoxvbUYYMizqrKPeotRRkJ9LtxAew==
+  version "1.4.79"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.79.tgz#02b504e1e6039b2e61edfc5f856895a0927925f5"
+  integrity sha512-nWfAxof87mGHkbORCwVRPst4FlSVdprOKS6dBMrcwn3sjwf8iHXEhsu1+FU5Psd7Ps3KKeBufAdfsPK5BmbSUg==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -4175,9 +4175,9 @@ lru-cache@^6.0.0:
     yallist "^4.0.0"
 
 lru-cache@^7.3.1, lru-cache@^7.4.1:
-  version "7.4.1"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-7.4.1.tgz#afe07e885ef0cd5bf99f62f4fa7545d48746d779"
-  integrity sha512-NCD7/WRlFmADccuHjsRUYqdluYBr//n/O0fesCb/n52FoGcgKh8o4Dpm7YIbZwVcDs8rPBQbCZLmWWsp6m+xGQ==
+  version "7.4.2"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-7.4.2.tgz#92f7b5afe82759f51b216a96fae3bc1828df9712"
+  integrity sha512-Xs3+hFPDSKQmL05Gs6NhvAADol1u9TmLoNoE03ZjszX6a5iYIO3rPUM4jIjoBUJeTaWEBMozjjmV70gvdRfIdw==
 
 make-dir@^3.0.0:
   version "3.1.0"
