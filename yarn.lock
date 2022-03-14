@@ -298,15 +298,15 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.5.0.tgz#0c5fedf493d3fc96939f04c732324e3c280279c2"
   integrity sha512-3ddce0k4xmaYEai+nzBSknu1gA0m4ANlDGHCUF+DiRQlh4epdZlzHwcZg6Z2MUuURKia7XcRCWyZIs5B9I8sMw==
 
-"@cdktf/provider-random@0.1.47":
-  version "0.1.47"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.47.tgz#8d3aa5650ac44e0bf0af286330cfdadb4466b9fc"
-  integrity sha512-kGpwVi/jeoN6UTZ9/HOKIZpntUBoogdrjpokSIBMXfZX1m+7VcpX9XNHuhiMAo06kuLMV5m2T4kTYwkxNI+aZg==
+"@cdktf/provider-random@0.1.48":
+  version "0.1.48"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.48.tgz#76aef3e09e9a4f82b64bd30c05b87c06cf36fd9f"
+  integrity sha512-EZGILFCvUoB1+qhZ3a8lUOYdcU7s7jx2RF8SwU5xhzRMIU+7vg0pjlwKRP/Wlum5ZM6/tEdg3iLJiCxWezwxCw==
 
-"@dschmidt/cdktf-construct-base@0.0.62":
-  version "0.0.62"
-  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.62.tgz#374753a75a504835bdbe3dd9e5ea29a87e6c503c"
-  integrity sha512-Ej7nger1llryq8yQRcKhDi10qWgbuRtUzFlU7GhHr44bF8X95GBghzEp5ZBYgUnU/bIuZmRDn8Q9GeJhfekIaQ==
+"@dschmidt/cdktf-construct-base@0.0.63":
+  version "0.0.63"
+  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.63.tgz#8ee58d6d81946ec5573ac1fff540ecf1605c02c6"
+  integrity sha512-cLUISybqQQApDrsdSlzskRWO4JFy5TrPAz+tw7I4tg2rnFZ5+1wYMlajJIEyGQ7O8/W1NHmwzcjvyTSHFCOtxg==
   dependencies:
     projen "^0.50.9"
 
@@ -1415,9 +1415,9 @@ camelcase@^6.2.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001313:
-  version "1.0.30001314"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001314.tgz#65c7f9fb7e4594fca0a333bec1d8939662377596"
-  integrity sha512-0zaSO+TnCHtHJIbpLroX7nsD+vYuOVjl3uzFbJO1wMVbuveJA0RK2WcQA9ZUIOiO0/ArMiMgHJLxfEZhQiC0kw==
+  version "1.0.30001315"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001315.tgz#f1b1efd1171ee1170d52709a7252632dacbd7c77"
+  integrity sha512-5v7LFQU4Sb/qvkz7JcZkvtSH1Ko+1x2kgo3ocdBeMGZSOFpuE1kkm0kpTwLtWeFrw5qw08ulLxJjVIXIS8MkiQ==
 
 case@^1.6.3:
   version "1.6.3"
@@ -5821,9 +5821,9 @@ ts-jest@^27.1.3:
     yargs-parser "20.x"
 
 tsconfig-paths@^3.12.0, tsconfig-paths@^3.9.0:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.13.0.tgz#f3e9b8f6876698581d94470c03c95b3a48c0e3d7"
-  integrity sha512-nWuffZppoaYK0vQ1SQmkSsQzJoHA4s6uzdb2waRpD806x9yfq153AdVsWz4je2qZcW+pENrMQXbGQ3sMCkXuhw==
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.14.0.tgz#4fcc48f9ccea8826c41b9ca093479de7f5018976"
+  integrity sha512-cg/1jAZoL57R39+wiw4u/SCC6Ic9Q5NqjBOb+9xISedOYurfog9ZNmKJSxAnb2m/5Bq4lE9lhUcau33Ml8DM0g==
   dependencies:
     "@types/json5" "^0.0.29"
     json5 "^1.0.1"
