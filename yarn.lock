@@ -298,15 +298,15 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.5.0.tgz#0c5fedf493d3fc96939f04c732324e3c280279c2"
   integrity sha512-3ddce0k4xmaYEai+nzBSknu1gA0m4ANlDGHCUF+DiRQlh4epdZlzHwcZg6Z2MUuURKia7XcRCWyZIs5B9I8sMw==
 
-"@cdktf/provider-random@0.1.55":
-  version "0.1.55"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.55.tgz#67fc1a494495f581f7e14021e1a7673f5c58f1ba"
-  integrity sha512-09cbZWLESGn6Czt60UzjyiRjRAbyv9SJCXTT4NOmQpKfyiqY1VDE6TL8loGEui8z6x1JCbt/0EaFHPD+gKg2/g==
+"@cdktf/provider-random@0.1.56":
+  version "0.1.56"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.1.56.tgz#fe2f696614c20d3fce1f34039e015c9fcfefbdbe"
+  integrity sha512-MRhjkzmDWzV7EV3KvoKZlZ3OGdeDuZICpfM5Ij25nsW4IoUR2R3u0R+VWz7bABcnH75sMGjdachpVDxjQeUpUg==
 
-"@dschmidt/cdktf-construct-base@0.0.78":
-  version "0.0.78"
-  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.78.tgz#45c66a731600171f74218e9d203630e148b75874"
-  integrity sha512-YDs0RXo+DuvuHxtjbJTOMORO6McXi3v+Lh5sWERQW+odIP5ECUYE5SOhHAfMS9RVcEgZD2S7/mNK+XH2u9wR+w==
+"@dschmidt/cdktf-construct-base@0.0.79":
+  version "0.0.79"
+  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.79.tgz#89b3a510780d37aa005098371f163bcecdea1abb"
+  integrity sha512-x+eiQxcUecrWWS3AEOEmjRSlTsAkZy01T36qUt7YLuYBv+ssZAjo6OZVgev3j9bEIJpgu1+DyEr4OZ8waVueFg==
   dependencies:
     projen "^0.50.9"
 
@@ -2076,9 +2076,9 @@ duplexer3@^0.1.4:
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
 
 electron-to-chromium@^1.4.84:
-  version "1.4.94"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.94.tgz#f19206c977361264a51d53a7ea7ef861a94baa10"
-  integrity sha512-CoOKsuACoa0PAG3hQXxbh/XDiFcjGuSyGKUi09cjMHOt6RCi7/EXgXhaFF3I+aC89Omudqmkzd0YOQKxwtf/Bg==
+  version "1.4.95"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.95.tgz#49303dbe037c15e2e0cc851d71c4cb86119a9cd6"
+  integrity sha512-h2VAMV/hPtmAeiDkwA8c5sjS+cWt6GlQL4ERdrOUWu7cRIG5IRk9uwR9f0utP+hPJ9ZZsADTq9HpbuT46eBYAg==
 
 emittery@^0.8.1:
   version "0.8.1"
