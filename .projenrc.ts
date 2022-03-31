@@ -1,4 +1,5 @@
-const { CDKTFConstruct } = require("@dschmidt/cdktf-construct-base");
+import { CDKTFConstruct } from "@dschmidt/cdktf-construct-base";
+
 const project = new CDKTFConstruct({
   author: "Daniel Schmidt",
   authorAddress: "danielmschmidt92@gmail.com",
