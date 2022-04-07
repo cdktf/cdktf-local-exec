@@ -285,10 +285,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdktf/provider-null@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.5.0.tgz#0c5fedf493d3fc96939f04c732324e3c280279c2"
-  integrity sha512-3ddce0k4xmaYEai+nzBSknu1gA0m4ANlDGHCUF+DiRQlh4epdZlzHwcZg6Z2MUuURKia7XcRCWyZIs5B9I8sMw==
+"@cdktf/provider-null@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.6.0.tgz#83650bb767acea188814ace060e8cfabc48fa5c6"
+  integrity sha512-DyKcvV//8TUE/FDYNRpwZZSrhSO8UaVIS6hpp8sZencv0iYawka8508CxUBTts+x0OoPk+PPSiqxKMxg3SfZFQ==
 
 "@cdktf/provider-random@0.2.7":
   version "0.2.7"
