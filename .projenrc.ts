@@ -8,7 +8,7 @@ const project = new CDKTFConstruct({
   repositoryUrl: "https://github.com/DanielMSchmidt/cdktf-local-exec.git",
 
   deps: [],
-  peerDeps: ["@cdktf/provider-null@>=0.5.0"],
+  peerDeps: ["@cdktf/provider-null@>=0.6.0"],
   devDeps: [
     "@cdktf/provider-null",
     "@cdktf/provider-random",
