@@ -290,15 +290,15 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-0.6.0.tgz#83650bb767acea188814ace060e8cfabc48fa5c6"
   integrity sha512-DyKcvV//8TUE/FDYNRpwZZSrhSO8UaVIS6hpp8sZencv0iYawka8508CxUBTts+x0OoPk+PPSiqxKMxg3SfZFQ==
 
-"@cdktf/provider-random@0.2.10":
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.2.10.tgz#0c9d26604bbaf6b5cb3e7882bbb7a046405b3afd"
-  integrity sha512-PcKnxgMicV0WPY5qg+UpYqPNY5VLxOMU4mfIGlCeP1XHiNUhVKRF4r9pHZ27FNkVAp+E+uJCmyAtEE5f7RBzAA==
+"@cdktf/provider-random@0.2.11":
+  version "0.2.11"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.2.11.tgz#e70250f8710965551a08592317175b272f6f4ca6"
+  integrity sha512-R2j3vRnBmPGUk+u6vLBTxbK+gu7s/ANMSrVefc8DOD0LliaHCX3+60THEYQd4hi9+r09m9pK1pJIJWwnK75xyQ==
 
-"@dschmidt/cdktf-construct-base@0.0.96":
-  version "0.0.96"
-  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.96.tgz#ef729ab87be3453b829a0f7847be4e4945fb149a"
-  integrity sha512-SZE8kq6c6bbCe800PIzobyDQ3kmNXinsqYwOQ2sXav0ev1HqTdzKUTV91YNfZwtNXru0PUlL+0QB3j/pYDN/GA==
+"@dschmidt/cdktf-construct-base@0.0.97":
+  version "0.0.97"
+  resolved "https://registry.yarnpkg.com/@dschmidt/cdktf-construct-base/-/cdktf-construct-base-0.0.97.tgz#ce71de8445ac513187d98387de13d07ae639653f"
+  integrity sha512-nuH2fVlRE3DfMBho4XzdWnAq3B0z+9Gm9IPRJFxwKucGwZSqNrnS8aqpDGpPL1jWUWs5XomoEHnnCItVP0BvPA==
   dependencies:
     projen "^0.50.9"
 
@@ -822,9 +822,9 @@
   integrity sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==
 
 "@types/prettier@^2.1.5":
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.4.4.tgz#5d9b63132df54d8909fce1c3f8ca260fdd693e17"
-  integrity sha512-ReVR2rLTV1kvtlWFyuot+d1pkpG2Fw/XKE3PDAdj57rbM97ttSp9JZ2UsP+2EHTylra9cUf6JA7tGwW1INzUrA==
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.6.0.tgz#efcbd41937f9ae7434c714ab698604822d890759"
+  integrity sha512-G/AdOadiZhnJp0jXCaBQU449W2h716OW/EoXeYkCytxKL06X1WCXB4DZpp8TpZ8eyIJVS1cw4lrlkkSYU21cDw==
 
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
