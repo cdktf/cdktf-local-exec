@@ -1,4 +1,4 @@
-import { Resource } from "@cdktf/provider-null";
+import { Resource } from "@cdktf/provider-null/lib/resource";
 import {
   AssetType,
   ITerraformDependable,
@@ -39,7 +39,7 @@ export interface LocalExecOptions {
   readonly copyBeforeRun?: boolean;
 }
 
-export { NullProvider as Provider } from "@cdktf/provider-null";
+export { NullProvider as Provider } from "@cdktf/provider-null/lib/provider";
 
 export class LocalExec extends Resource {
   public cwd: string;
