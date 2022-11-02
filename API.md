@@ -86,7 +86,7 @@ new NullProvider(scope: Construct, id: string, config?: NullProviderConfig)
 | --- | --- | --- |
 | [`scope`](#cdktflocalexecnullproviderparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | The scope in which to define this construct. |
 | [`id`](#cdktflocalexecnullproviderparameterid)<span title="Required">*</span> | `string` | The scoped construct ID. |
-| [`config`](#cdktflocalexecnullproviderparameterconfig) | [`@cdktf/provider-null.NullProviderConfig`](#@cdktf/provider-null.NullProviderConfig) | *No description.* |
+| [`config`](#cdktflocalexecnullproviderparameterconfig) | [`@cdktf/provider-null.provider.NullProviderConfig`](#@cdktf/provider-null.provider.NullProviderConfig) | *No description.* |
 
 ---
 
@@ -110,7 +110,7 @@ Must be unique amongst siblings in the same scope
 
 ##### `config`<sup>Optional</sup> <a name="cdktf-local-exec.NullProvider.parameter.config" id="cdktflocalexecnullproviderparameterconfig"></a>
 
-- *Type:* [`@cdktf/provider-null.NullProviderConfig`](#@cdktf/provider-null.NullProviderConfig)
+- *Type:* [`@cdktf/provider-null.provider.NullProviderConfig`](#@cdktf/provider-null.provider.NullProviderConfig)
 
 ---
 
