@@ -9,14 +9,14 @@
 ```typescript
 import { LocalExec } from 'cdktf-local-exec'
 
-new LocalExec(scope: Construct, id: string, config: LocalExecOptions)
+new LocalExec(scope: Construct, id: string, config: LocalExecConfig)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | [`scope`](#cdktflocalexeclocalexecparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
 | [`id`](#cdktflocalexeclocalexecparameterid)<span title="Required">*</span> | `string` | *No description.* |
-| [`config`](#cdktflocalexeclocalexecparameterconfig)<span title="Required">*</span> | [`cdktf-local-exec.LocalExecOptions`](#cdktf-local-exec.LocalExecOptions) | *No description.* |
+| [`config`](#cdktflocalexeclocalexecparameterconfig)<span title="Required">*</span> | [`cdktf-local-exec.LocalExecConfig`](#cdktf-local-exec.LocalExecConfig) | *No description.* |
 
 ---
 
@@ -34,7 +34,7 @@ new LocalExec(scope: Construct, id: string, config: LocalExecOptions)
 
 ##### `config`<sup>Required</sup> <a name="cdktf-local-exec.LocalExec.parameter.config" id="cdktflocalexeclocalexecparameterconfig"></a>
 
-- *Type:* [`cdktf-local-exec.LocalExecOptions`](#cdktf-local-exec.LocalExecOptions)
+- *Type:* [`cdktf-local-exec.LocalExecConfig`](#cdktf-local-exec.LocalExecConfig)
 
 ---
 
@@ -174,31 +174,31 @@ public readonly alias: string;
 
 ## Structs <a name="Structs" id="structs"></a>
 
-### LocalExecOptions <a name="cdktf-local-exec.LocalExecOptions" id="cdktflocalexeclocalexecoptions"></a>
+### LocalExecConfig <a name="cdktf-local-exec.LocalExecConfig" id="cdktflocalexeclocalexecconfig"></a>
 
 #### Initializer <a name="[object Object].Initializer" id="object-objectinitializer"></a>
 
 ```typescript
-import { LocalExecOptions } from 'cdktf-local-exec'
+import { LocalExecConfig } from 'cdktf-local-exec'
 
-const localExecOptions: LocalExecOptions = { ... }
+const localExecConfig: LocalExecConfig = { ... }
 ```
 
 #### Properties <a name="Properties" id="properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`command`](#cdktflocalexeclocalexecoptionspropertycommand)<span title="Required">*</span> | `string` | The command to run. |
-| [`cwd`](#cdktflocalexeclocalexecoptionspropertycwd)<span title="Required">*</span> | `string` | The working directory to run the command in. |
-| [`copyBeforeRun`](#cdktflocalexeclocalexecoptionspropertycopybeforerun) | `boolean` | If set to true, the working directory will be copied to an asset directory. |
-| [`dependsOn`](#cdktflocalexeclocalexecoptionspropertydependson) | [`cdktf.ITerraformDependable`](#cdktf.ITerraformDependable)[] | *No description.* |
-| [`lifecycle`](#cdktflocalexeclocalexecoptionspropertylifecycle) | [`cdktf.TerraformResourceLifecycle`](#cdktf.TerraformResourceLifecycle) | *No description.* |
-| [`provider`](#cdktflocalexeclocalexecoptionspropertyprovider) | [`cdktf.TerraformProvider`](#cdktf.TerraformProvider) | *No description.* |
-| [`triggers`](#cdktflocalexeclocalexecoptionspropertytriggers) | {[ key: string ]: `string`} | *No description.* |
+| [`command`](#cdktflocalexeclocalexecconfigpropertycommand)<span title="Required">*</span> | `string` | The command to run. |
+| [`cwd`](#cdktflocalexeclocalexecconfigpropertycwd)<span title="Required">*</span> | `string` | The working directory to run the command in. |
+| [`copyBeforeRun`](#cdktflocalexeclocalexecconfigpropertycopybeforerun) | `boolean` | If set to true, the working directory will be copied to an asset directory. |
+| [`dependsOn`](#cdktflocalexeclocalexecconfigpropertydependson) | [`cdktf.ITerraformDependable`](#cdktf.ITerraformDependable)[] | *No description.* |
+| [`lifecycle`](#cdktflocalexeclocalexecconfigpropertylifecycle) | [`cdktf.TerraformResourceLifecycle`](#cdktf.TerraformResourceLifecycle) | *No description.* |
+| [`provider`](#cdktflocalexeclocalexecconfigpropertyprovider) | [`cdktf.TerraformProvider`](#cdktf.TerraformProvider) | *No description.* |
+| [`triggers`](#cdktflocalexeclocalexecconfigpropertytriggers) | {[ key: string ]: `string`} | *No description.* |
 
 ---
 
-##### `command`<sup>Required</sup> <a name="cdktf-local-exec.LocalExecOptions.property.command" id="cdktflocalexeclocalexecoptionspropertycommand"></a>
+##### `command`<sup>Required</sup> <a name="cdktf-local-exec.LocalExecConfig.property.command" id="cdktflocalexeclocalexecconfigpropertycommand"></a>
 
 ```typescript
 public readonly command: string;
@@ -210,7 +210,7 @@ The command to run.
 
 ---
 
-##### `cwd`<sup>Required</sup> <a name="cdktf-local-exec.LocalExecOptions.property.cwd" id="cdktflocalexeclocalexecoptionspropertycwd"></a>
+##### `cwd`<sup>Required</sup> <a name="cdktf-local-exec.LocalExecConfig.property.cwd" id="cdktflocalexeclocalexecconfigpropertycwd"></a>
 
 ```typescript
 public readonly cwd: string;
@@ -224,7 +224,7 @@ Defaults to process.pwd(). If copyBeforeRun is set to true it will copy the work
 
 ---
 
-##### `copyBeforeRun`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecOptions.property.copyBeforeRun" id="cdktflocalexeclocalexecoptionspropertycopybeforerun"></a>
+##### `copyBeforeRun`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecConfig.property.copyBeforeRun" id="cdktflocalexeclocalexecconfigpropertycopybeforerun"></a>
 
 ```typescript
 public readonly copyBeforeRun: boolean;
@@ -237,7 +237,7 @@ If set to true, the working directory will be copied to an asset directory.
 
 ---
 
-##### `dependsOn`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecOptions.property.dependsOn" id="cdktflocalexeclocalexecoptionspropertydependson"></a>
+##### `dependsOn`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecConfig.property.dependsOn" id="cdktflocalexeclocalexecconfigpropertydependson"></a>
 
 ```typescript
 public readonly dependsOn: ITerraformDependable[];
@@ -247,7 +247,7 @@ public readonly dependsOn: ITerraformDependable[];
 
 ---
 
-##### `lifecycle`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecOptions.property.lifecycle" id="cdktflocalexeclocalexecoptionspropertylifecycle"></a>
+##### `lifecycle`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecConfig.property.lifecycle" id="cdktflocalexeclocalexecconfigpropertylifecycle"></a>
 
 ```typescript
 public readonly lifecycle: TerraformResourceLifecycle;
@@ -257,7 +257,7 @@ public readonly lifecycle: TerraformResourceLifecycle;
 
 ---
 
-##### `provider`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecOptions.property.provider" id="cdktflocalexeclocalexecoptionspropertyprovider"></a>
+##### `provider`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecConfig.property.provider" id="cdktflocalexeclocalexecconfigpropertyprovider"></a>
 
 ```typescript
 public readonly provider: TerraformProvider;
@@ -267,7 +267,7 @@ public readonly provider: TerraformProvider;
 
 ---
 
-##### `triggers`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecOptions.property.triggers" id="cdktflocalexeclocalexecoptionspropertytriggers"></a>
+##### `triggers`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecConfig.property.triggers" id="cdktflocalexeclocalexecconfigpropertytriggers"></a>
 
 ```typescript
 public readonly triggers: {[ key: string ]: string};

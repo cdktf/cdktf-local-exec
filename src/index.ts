@@ -9,7 +9,7 @@ import {
 } from "cdktf";
 import { Construct } from "constructs";
 
-export interface LocalExecOptions {
+export interface LocalExecConfig {
   // From the null ResourceConfig
   readonly dependsOn?: ITerraformDependable[];
   readonly provider?: TerraformProvider;
@@ -45,7 +45,7 @@ export class LocalExec extends Resource {
   public cwd: string;
   public command: string;
 
-  constructor(scope: Construct, id: string, config: LocalExecOptions) {
+  constructor(scope: Construct, id: string, config: LocalExecConfig) {
     super(scope, id, config);
 
     const workingDir =

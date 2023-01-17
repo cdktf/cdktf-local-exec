@@ -14,5 +14,5 @@ const project = new CDKTFConstruct({
   // release: undefined,      /* Add release management to this project. */
 });
 
-project.addPeerDeps("cdktf@>=0.13.2", "@cdktf/provider-null@>=3.0.0");
+project.addPeerDeps("cdktf@>=0.15.0", "@cdktf/provider-null@>=5.0.0");
 project.synth();
