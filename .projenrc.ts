@@ -12,6 +12,10 @@ const project = new CDKTFConstruct({
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
   // release: undefined,      /* Add release management to this project. */
+  workflowGitIdentity: {
+    name: "team-tf-cdk",
+    email: "github-team-tf-cdk@hashicorp.com",
+  },
 });
 
 project.addPeerDeps("cdktf@>=0.15.0", "@cdktf/provider-null@>=5.0.0");
