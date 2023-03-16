@@ -18,7 +18,7 @@ class CustomizedLicense extends License {
 
   synthesizeContent(resolver: IResolver) {
     return (
-      "Copyright (c) 2022 HashiCorp, Inc.\n\n" +
+      "Copyright (c) 2021 HashiCorp, Inc.\n\n" +
       super.synthesizeContent(resolver)
     );
   }
