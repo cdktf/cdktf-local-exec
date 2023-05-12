@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { CDKTFConstruct } from "@dschmidt/cdktf-construct-base";
 import { IResolver, License } from "projen";
+import { ConstructLibraryCdktf } from "projen/lib/cdktf";
 import { TypeScriptProject } from "projen/lib/typescript";
 
 const SPDX = "MPL-2.0";
