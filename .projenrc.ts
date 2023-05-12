@@ -3,14 +3,34 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { IResolver, License } from "projen";
 import { ConstructLibraryCdktf } from "projen/lib/cdktf";
+import { TypeScriptProject } from "projen/lib/typescript";
+
+const SPDX = "MPL-2.0";
+
+class CustomizedLicense extends License {
+  constructor(project: TypeScriptProject) {
+    super(project, { spdx: SPDX });
+
+    project.addFields({ license: SPDX });
+  }
+
+  synthesizeContent(resolver: IResolver) {
+    return (
+      "Copyright (c) 2021 HashiCorp, Inc.\n\n" +
+      super.synthesizeContent(resolver)
+    );
+  }
+}
 
 const project = new ConstructLibraryCdktf({
-  author: "Daniel Schmidt",
-  authorAddress: "danielmschmidt92@gmail.com",
+  author: "HashiCorp",
+  authorAddress: "https://hashicorp.com",
+  authorOrganization: true,
   defaultReleaseBranch: "main",
   name: "cdktf-local-exec",
-  repositoryUrl: "https://github.com/DanielMSchmidt/cdktf-local-exec.git",
+  repositoryUrl: "https://github.com/cdktf/cdktf-local-exec.git",
   devDeps: ["@cdktf/provider-random", "ts-node@10.9.1"],
   description:
     "A simple construct that executes a command locally. This is useful to run build steps within your CDKTF Program or to run a post action after a resource is created." /* The description is just a string that helps people understand the purpose of the package. */,
@@ -33,6 +53,7 @@ const project = new ConstructLibraryCdktf({
     distName: "cdktf-local-exec",
     module: "cdktf_local_exec",
   },
+  licensed: false,
 });
 
 project.addPeerDeps(
@@ -41,12 +62,13 @@ project.addPeerDeps(
   "constructs@^10.0.25"
 );
 
+new CustomizedLicense(project);
+
 // Run copywrite tool to add copyright headers to all files
 project.buildWorkflow?.addPostBuildSteps(
   {
     name: "Setup Copywrite tool",
-    uses: "hashicorp/setup-copywrite@3ace06ad72e6ec679ea8572457b17dbc3960b8ce", // v1.0.0
-    with: { token: "${{ secrets.GITHUB_TOKEN }}" },
+    uses: "hashicorp/setup-copywrite@867a1a2a064a0626db322392806428f7dc59cb3e", // v1.1.2
   },
   { name: "Add headers using Copywrite tool", run: "copywrite headers" }
 );
