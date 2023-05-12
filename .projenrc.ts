@@ -24,7 +24,7 @@ class CustomizedLicense extends License {
   }
 }
 
-const project = new CDKTFConstruct({
+const project = new ConstructLibraryCdktf({
   author: "HashiCorp",
   authorAddress: "https://hashicorp.com",
   authorOrganization: true,
