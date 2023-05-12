@@ -44,7 +44,13 @@ const project = new ConstructLibraryCdktf({
   cdktfVersion: "0.16.0",
   autoApproveUpgrades: true,
   autoApproveOptions: {
+    allowedUsernames: ["team-tf-cdk"],
     label: "auto-approve",
+  },
+  depsUpgradeOptions: {
+    workflowOptions: {
+      labels: ["auto-approve", "dependencies"],
+    },
   },
   projenrcTs: true,
   prettier: true,
