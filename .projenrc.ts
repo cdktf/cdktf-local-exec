@@ -41,7 +41,7 @@ const project = new ConstructLibraryCdktf({
     name: "team-tf-cdk",
     email: "github-team-tf-cdk@hashicorp.com",
   },
-  cdktfVersion: "0.16.0",
+  cdktfVersion: "0.17.0",
   autoApproveUpgrades: true,
   autoApproveOptions: {
     allowedUsernames: ["team-tf-cdk"],
@@ -63,7 +63,7 @@ const project = new ConstructLibraryCdktf({
 });
 
 project.addPeerDeps(
-  "cdktf@>=0.15.0",
+  "cdktf@>=0.17.0",
   "@cdktf/provider-null@>=5.0.0",
   "constructs@^10.0.25"
 );

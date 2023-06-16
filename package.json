@@ -42,7 +42,7 @@
     "@types/node": "^16",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "cdktf": "0.15.0",
+    "cdktf": "0.17.0",
     "constructs": "10.0.25",
     "eslint": "^8",
     "eslint-config-prettier": "^8.8.0",
@@ -66,7 +66,7 @@
   },
   "peerDependencies": {
     "@cdktf/provider-null": ">=5.0.0",
-    "cdktf": ">=0.15.0",
+    "cdktf": ">=0.17.0",
     "constructs": "^10.0.25"
   },
   "keywords": [
