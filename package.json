@@ -36,7 +36,7 @@
     "organization": true
   },
   "devDependencies": {
-    "@cdktf/provider-null": "5.0.0",
+    "@cdktf/provider-null": "7.0.0",
     "@cdktf/provider-random": "0.3.63",
     "@types/jest": "^27",
     "@types/node": "^16",
@@ -65,7 +65,7 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "@cdktf/provider-null": ">=5.0.0",
+    "@cdktf/provider-null": ">=7.0.0",
     "cdktf": ">=0.17.0",
     "constructs": "^10.0.25"
   },

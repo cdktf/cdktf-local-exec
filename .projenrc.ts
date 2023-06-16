@@ -66,7 +66,7 @@ const project = new ConstructLibraryCdktf({
 
 project.addPeerDeps(
   "cdktf@>=0.17.0",
-  "@cdktf/provider-null@>=5.0.0",
+  "@cdktf/provider-null@>=7.0.0",
   "constructs@^10.0.25"
 );
 

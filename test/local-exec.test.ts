@@ -27,16 +27,12 @@ const apply = (addConstructs: (scope: Construct) => void) => {
   return outdir;
 };
 
-const workingDirectoryForAsset = (
-  manifestPath: string,
-  name: string,
-  stackName = "test"
-) => {
+const workingDirectoryForAsset = (manifestPath: string, name: string) => {
   const dir = path.resolve(manifestPath, "cdk.tf.json");
   const manifest = JSON.parse(fs.readFileSync(dir, "utf8"));
-  const assetPath = Object.entries<any>(manifest.resource.null_resource).find(
-    ([key]) => key.startsWith(`${stackName}_${name}`)
-  )![1].provisioner[0]["local-exec"].working_dir;
+  const assetPath =
+    manifest.resource.null_resource[name]!.provisioner[0]["local-exec"]
+      .working_dir;
 
   return path.resolve(manifestPath, assetPath);
 };
