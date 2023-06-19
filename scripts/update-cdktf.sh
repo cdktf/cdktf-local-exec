@@ -14,6 +14,7 @@ if [ -z "$CDKTF_VERSION" ]; then
 fi
 
 echo "Updating to cdktf version $CDKTF_VERSION"
+git checkout -b "cdktf-$CDKTF_VERSION"
 cd $PROJECT_ROOT
 
 yarn
@@ -22,3 +23,9 @@ sed -i "s/cdktfVersion: \".*\",/cdktfVersion: \"$CDKTF_VERSION\",/" "$PROJECT_RO
 sed -i "s/\"cdktf@>=.*\"/\"cdktf@>=$CDKTF_VERSION\"/" "$PROJECT_ROOT/.projenrc.ts"
 
 npx projen
+
+git add .
+git commit -m "feat: update to cdktf $CDKTF_VERSION"
+git push origin "cdktf-$CDKTF_VERSION"
+
+gh pr create --fill --base main --head "cdktf-$CDKTF_VERSION" --title "feat: update to cdktf $CDKTF_VERSION"
