@@ -72,7 +72,7 @@ public readonly cwd: string;
 
 ### NullProvider <a name="cdktf-local-exec.NullProvider" id="cdktflocalexecnullprovider"></a>
 
-Represents a {@link https://www.terraform.io/docs/providers/null null}.
+Represents a {@link https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs null}.
 
 #### Initializers <a name="cdktf-local-exec.NullProvider.Initializer" id="cdktflocalexecnullproviderinitializer"></a>
 
