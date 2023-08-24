@@ -6,7 +6,7 @@
 import { execSync } from "child_process";
 import * as fs from "fs";
 import * as path from "path";
-import * as rand from "@cdktf/provider-random";
+import { password, provider } from "@cdktf/provider-random";
 import { App, TerraformStack, Testing } from "cdktf";
 import { Construct } from "constructs";
 import { LocalExec, Provider } from "../src";
@@ -113,21 +113,21 @@ describe("LocalExec", () => {
   test("runs command can use token value inside a command", () => {
     const passwordLength = 4;
     const outdir = apply((stack) => {
-      new rand.RandomProvider(stack, "random");
+      new provider.RandomProvider(stack, "random");
 
       const waiter = new LocalExec(stack, "timer", {
         command: "sleep 3",
         cwd: __dirname,
         copyBeforeRun: false,
       });
-      const password = new rand.Password(stack, "password", {
+      const pw = new password.Password(stack, "password", {
         length: passwordLength,
         special: false,
         dependsOn: [waiter],
       });
 
       new LocalExec(stack, "passwordwriter", {
-        command: `echo "${password.result}" > test.txt`,
+        command: `echo "${pw.result}" > test.txt`,
         cwd: __dirname,
         copyBeforeRun: false,
       });

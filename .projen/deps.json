@@ -7,6 +7,7 @@
     },
     {
       "name": "@cdktf/provider-random",
+      "version": "^8.0.0",
       "type": "build"
     },
     {
@@ -118,6 +119,7 @@
     },
     {
       "name": "ts-node",
+      "version": "10.9.1",
       "type": "build"
     },
     {
@@ -126,7 +128,7 @@
     },
     {
       "name": "@cdktf/provider-null",
-      "version": ">=7.0.0",
+      "version": "^7.0.0",
       "type": "peer"
     },
     {

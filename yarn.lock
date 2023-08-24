@@ -300,10 +300,10 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-7.0.0.tgz#5e5edfd622d5a9122563ad54a0996858df274ad5"
   integrity sha512-uofD/gN3yXdXo/7xCo6O9HBmKlY/LV6nvVKRTuSuhBjlNIyAKP0v/FpZ7iAJb8VWJlC1yAPUU2QXW7VpejdXCA==
 
-"@cdktf/provider-random@0.3.63":
-  version "0.3.63"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-0.3.63.tgz#a80e325878c9dc29d8a504fffd519013281bc202"
-  integrity sha512-3DQO43BG/0SdOhUE5nBcKFFuey3IXU6fk8MYwRRHFPTbS1mZuyldlwE5kwe5lUpjDutj2PLcmEj23h5+kSE3Tg==
+"@cdktf/provider-random@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-8.0.0.tgz#bea5193ee331932780eac3fd2d70226c80ee3c33"
+  integrity sha512-acVp0V/twKHwkWSGh05xxMkFEDx/tm6i46s/7ciuJrJfiJmWMcCb0BG8/csiLaK/E/hsCeoFQL0wHj5ncZF/wQ==
 
 "@colors/colors@1.5.0":
   version "1.5.0"
