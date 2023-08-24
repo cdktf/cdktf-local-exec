@@ -49,8 +49,8 @@ jobs:
             This PR initiates the upgrade of CDKTF from version `${{ steps.current_version.outputs.value }}` to version `${{ steps.latest_version.outputs.value }}`.
             Unfortunately, not everything can be automated, and the following steps need to be completed manually:
              
-            - [ ] Update `@cdktf/provider-null` to a version compatible with `cdktf@${{ steps.latest_version.outputs.value }}` [here](https://github.com/cdktf/cdktf-local-exec/blob/45a35846c8c7e5bdc600d76344305b1a049ef130/.projenrc.ts#L62)
-            - [ ] Update `@cdktf/provider-random` to a version compatible with `cdktf@${{ steps.latest_version.outputs.value }}` [here](https://github.com/cdktf/cdktf-local-exec/blob/main/.projenrc.ts#L67)
+            - [ ] Update `@cdktf/provider-null` to a version compatible with `cdktf@${{ steps.latest_version.outputs.value }}` [here](https://github.com/cdktf/cdktf-local-exec/blob/45a35846c8c7e5bdc600d76344305b1a049ef130/.projenrc.ts#L62). Look up the version [here](https://github.com/cdktf/cdktf-provider-null/releases/).
+            - [ ] Update `@cdktf/provider-random` to a version compatible with `cdktf@${{ steps.latest_version.outputs.value }}` [here](https://github.com/cdktf/cdktf-local-exec/blob/main/.projenrc.ts#L67). Look up the version [here](https://github.com/cdktf/cdktf-provider-random/releases/).
              
             Please checkout this PR, complete the above steps, push the changes to this branch, and then mark this PR as ready for review to complete the upgrade. Thanks!
           labels: automerge,auto-approve,dependencies
