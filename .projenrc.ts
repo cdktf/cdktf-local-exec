@@ -8,12 +8,14 @@ import { UpgradeDependenciesSchedule } from "projen/lib/javascript";
 import { AutoApprove } from "./projenrc/auto-approve";
 import { Automerge } from "./projenrc/automerge";
 import { CustomizedLicense } from "./projenrc/customized-license";
+import { UpgradeCDKTF } from "./projenrc/upgrade-cdktf";
 
 const name = "cdktf-local-exec";
 
 const githubActionPinnedVersions = {
   "actions/checkout": "c85c95e3d7251135ab7dc9ce3241c5835cc595a9", // v3.5.3
   "actions/download-artifact": "9bc31d5ccc31df68ecc42ccf4149144866c47d8a", // v3.0.2
+  "actions/github-script": "d7906e4ad0b1822421a7e6a35d5ca353c962f410", // v6.4.1
   "actions/setup-node": "64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c", // v3.6.0
   "actions/upload-artifact": "0b7f8abb1508181956e8e162db84b466c27e18ce", // v3.1.2
   "amannn/action-semantic-pull-request":
@@ -28,7 +30,6 @@ const project = new ConstructLibraryCdktf({
   defaultReleaseBranch: "main",
   name,
   repositoryUrl: "https://github.com/cdktf/cdktf-local-exec.git",
-  devDeps: ["@cdktf/provider-random", "ts-node@10.9.1"],
   description:
     "A simple construct that executes a command locally. This is useful to run build steps within your CDKTF Program or to run a post action after a resource is created." /* The description is just a string that helps people understand the purpose of the package. */,
   workflowGitIdentity: {
@@ -56,12 +57,14 @@ const project = new ConstructLibraryCdktf({
 new CustomizedLicense(project);
 new AutoApprove(project);
 new Automerge(project);
+new UpgradeCDKTF(project);
 
 project.addPeerDeps(
   "cdktf@>=0.17.0",
-  "@cdktf/provider-null@>=7.0.0",
+  "@cdktf/provider-null@^7.0.0",
   "constructs@^10.0.25"
 );
+project.addDevDeps("ts-node@10.9.1", "@cdktf/provider-random@^8.0.0");
 
 // Run copywrite tool to add copyright headers to all files
 project.buildWorkflow?.addPostBuildSteps(
