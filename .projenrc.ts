@@ -52,6 +52,7 @@ const project = new ConstructLibraryCdktf({
     module: name.replace(/-/g, "_"),
   },
   licensed: false,
+  pullRequestTemplate: false,
 });
 
 new CustomizedLicense(project);
