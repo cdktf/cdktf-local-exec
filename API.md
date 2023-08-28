@@ -1,10 +1,51 @@
+# CDKTF Local Exec Construct
+
+A simple construct that executes a command locally. This is useful to run build steps within your CDKTF Program or to run a post action after a resource is created.
+
+The construct uses the null provider to achieve this so it can be trusted to only run after all dependencies are met.
+
+## Usage
+
+```ts
+import { Provider, LocalExec } from "cdktf-local-exec";
+
+// LocalExec extends from the null provider,
+// so if you already have the provider initialized you can skip this step
+new Provider(this, "local-exec");
+
+const frontend = new LocalExec(this, "frontend-build", {
+  // Will copy this into an asset directory
+  cwd: "/path/to/project/frontend",
+  command: "npm install && npm build",
+});
+
+const pathToUpload = `${frontend.path}/dist`;
+
+new LocalExec(this, "frontend-upload", {
+  cwd: pathToUpload,
+  command: `aws s3 cp --recursive ${pathToUpload} s3://${bucket.name}/frontend`,
+});
+
+new LocalExec(this, "backend-build", {
+  cwd: "/path/to/project/backend",
+  copyBeforeRun: false, // can not run remotely since the runner has no docker access
+  command: "docker build -t foo . && docker push foo",
+});
+```
+
+### Options
+
+- `cwd`: The working directory to run the command in. It will be copied before execution to ensure the asset can be used in a remote execution environment.
+- `command`: The command to execute.
+- `copyBeforeRun`: If true, the command will copy the `cwd` directory into a tmp dir and run there. If false, the command will be executed in the `cwd` directory.
+
 # API Reference <a name="API Reference" id="api-reference"></a>
 
-## Constructs <a name="Constructs" id="constructs"></a>
+## Constructs <a name="Constructs" id="Constructs"></a>
 
-### LocalExec <a name="cdktf-local-exec.LocalExec" id="cdktflocalexeclocalexec"></a>
+### LocalExec <a name="LocalExec" id="cdktf-local-exec.LocalExec"></a>
 
-#### Initializers <a name="cdktf-local-exec.LocalExec.Initializer" id="cdktflocalexeclocalexecinitializer"></a>
+#### Initializers <a name="Initializers" id="cdktf-local-exec.LocalExec.Initializer"></a>
 
 ```typescript
 import { LocalExec } from 'cdktf-local-exec'
@@ -14,67 +55,541 @@ new LocalExec(scope: Construct, id: string, config: LocalExecConfig)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`scope`](#cdktflocalexeclocalexecparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
-| [`id`](#cdktflocalexeclocalexecparameterid)<span title="Required">*</span> | `string` | *No description.* |
-| [`config`](#cdktflocalexeclocalexecparameterconfig)<span title="Required">*</span> | [`cdktf-local-exec.LocalExecConfig`](#cdktf-local-exec.LocalExecConfig) | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.Initializer.parameter.config">config</a></code> | <code><a href="#cdktf-local-exec.LocalExecConfig">LocalExecConfig</a></code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="cdktf-local-exec.LocalExec.parameter.scope" id="cdktflocalexeclocalexecparameterscope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdktf-local-exec.LocalExec.Initializer.parameter.scope"></a>
 
-- *Type:* [`constructs.Construct`](#constructs.Construct)
-
----
-
-##### `id`<sup>Required</sup> <a name="cdktf-local-exec.LocalExec.parameter.id" id="cdktflocalexeclocalexecparameterid"></a>
-
-- *Type:* `string`
+- *Type:* constructs.Construct
 
 ---
 
-##### `config`<sup>Required</sup> <a name="cdktf-local-exec.LocalExec.parameter.config" id="cdktflocalexeclocalexecparameterconfig"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdktf-local-exec.LocalExec.Initializer.parameter.id"></a>
 
-- *Type:* [`cdktf-local-exec.LocalExecConfig`](#cdktf-local-exec.LocalExecConfig)
+- *Type:* string
 
 ---
 
+##### `config`<sup>Required</sup> <a name="config" id="cdktf-local-exec.LocalExec.Initializer.parameter.config"></a>
 
+- *Type:* <a href="#cdktf-local-exec.LocalExecConfig">LocalExecConfig</a>
 
-#### Properties <a name="Properties" id="properties"></a>
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdktf-local-exec.LocalExec.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdktf-local-exec.LocalExec.addOverride">addOverride</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
+| <code><a href="#cdktf-local-exec.LocalExec.resetOverrideLogicalId">resetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#cdktf-local-exec.LocalExec.toMetadata">toMetadata</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.toTerraform">toTerraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#cdktf-local-exec.LocalExec.getAnyMapAttribute">getAnyMapAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.getBooleanAttribute">getBooleanAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.getBooleanMapAttribute">getBooleanMapAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.getListAttribute">getListAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.getNumberAttribute">getNumberAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.getNumberListAttribute">getNumberListAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.getNumberMapAttribute">getNumberMapAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.getStringAttribute">getStringAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.getStringMapAttribute">getStringMapAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.interpolationForAttribute">interpolationForAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.resetTriggers">resetTriggers</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdktf-local-exec.LocalExec.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addOverride` <a name="addOverride" id="cdktf-local-exec.LocalExec.addOverride"></a>
+
+```typescript
+public addOverride(path: string, value: any): void
+```
+
+###### `path`<sup>Required</sup> <a name="path" id="cdktf-local-exec.LocalExec.addOverride.parameter.path"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdktf-local-exec.LocalExec.addOverride.parameter.value"></a>
+
+- *Type:* any
+
+---
+
+##### `overrideLogicalId` <a name="overrideLogicalId" id="cdktf-local-exec.LocalExec.overrideLogicalId"></a>
+
+```typescript
+public overrideLogicalId(newLogicalId: string): void
+```
+
+Overrides the auto-generated logical ID with a specific ID.
+
+###### `newLogicalId`<sup>Required</sup> <a name="newLogicalId" id="cdktf-local-exec.LocalExec.overrideLogicalId.parameter.newLogicalId"></a>
+
+- *Type:* string
+
+The new logical ID to use for this stack element.
+
+---
+
+##### `resetOverrideLogicalId` <a name="resetOverrideLogicalId" id="cdktf-local-exec.LocalExec.resetOverrideLogicalId"></a>
+
+```typescript
+public resetOverrideLogicalId(): void
+```
+
+Resets a previously passed logical Id to use the auto-generated logical id again.
+
+##### `toMetadata` <a name="toMetadata" id="cdktf-local-exec.LocalExec.toMetadata"></a>
+
+```typescript
+public toMetadata(): any
+```
+
+##### `toTerraform` <a name="toTerraform" id="cdktf-local-exec.LocalExec.toTerraform"></a>
+
+```typescript
+public toTerraform(): any
+```
+
+Adds this resource to the terraform JSON output.
+
+##### `getAnyMapAttribute` <a name="getAnyMapAttribute" id="cdktf-local-exec.LocalExec.getAnyMapAttribute"></a>
+
+```typescript
+public getAnyMapAttribute(terraformAttribute: string): {[ key: string ]: any}
+```
+
+###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="cdktf-local-exec.LocalExec.getAnyMapAttribute.parameter.terraformAttribute"></a>
+
+- *Type:* string
+
+---
+
+##### `getBooleanAttribute` <a name="getBooleanAttribute" id="cdktf-local-exec.LocalExec.getBooleanAttribute"></a>
+
+```typescript
+public getBooleanAttribute(terraformAttribute: string): IResolvable
+```
+
+###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="cdktf-local-exec.LocalExec.getBooleanAttribute.parameter.terraformAttribute"></a>
+
+- *Type:* string
+
+---
+
+##### `getBooleanMapAttribute` <a name="getBooleanMapAttribute" id="cdktf-local-exec.LocalExec.getBooleanMapAttribute"></a>
+
+```typescript
+public getBooleanMapAttribute(terraformAttribute: string): {[ key: string ]: boolean}
+```
+
+###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="cdktf-local-exec.LocalExec.getBooleanMapAttribute.parameter.terraformAttribute"></a>
+
+- *Type:* string
+
+---
+
+##### `getListAttribute` <a name="getListAttribute" id="cdktf-local-exec.LocalExec.getListAttribute"></a>
+
+```typescript
+public getListAttribute(terraformAttribute: string): string[]
+```
+
+###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="cdktf-local-exec.LocalExec.getListAttribute.parameter.terraformAttribute"></a>
+
+- *Type:* string
+
+---
+
+##### `getNumberAttribute` <a name="getNumberAttribute" id="cdktf-local-exec.LocalExec.getNumberAttribute"></a>
+
+```typescript
+public getNumberAttribute(terraformAttribute: string): number
+```
+
+###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="cdktf-local-exec.LocalExec.getNumberAttribute.parameter.terraformAttribute"></a>
+
+- *Type:* string
+
+---
+
+##### `getNumberListAttribute` <a name="getNumberListAttribute" id="cdktf-local-exec.LocalExec.getNumberListAttribute"></a>
+
+```typescript
+public getNumberListAttribute(terraformAttribute: string): number[]
+```
+
+###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="cdktf-local-exec.LocalExec.getNumberListAttribute.parameter.terraformAttribute"></a>
+
+- *Type:* string
+
+---
+
+##### `getNumberMapAttribute` <a name="getNumberMapAttribute" id="cdktf-local-exec.LocalExec.getNumberMapAttribute"></a>
+
+```typescript
+public getNumberMapAttribute(terraformAttribute: string): {[ key: string ]: number}
+```
+
+###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="cdktf-local-exec.LocalExec.getNumberMapAttribute.parameter.terraformAttribute"></a>
+
+- *Type:* string
+
+---
+
+##### `getStringAttribute` <a name="getStringAttribute" id="cdktf-local-exec.LocalExec.getStringAttribute"></a>
+
+```typescript
+public getStringAttribute(terraformAttribute: string): string
+```
+
+###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="cdktf-local-exec.LocalExec.getStringAttribute.parameter.terraformAttribute"></a>
+
+- *Type:* string
+
+---
+
+##### `getStringMapAttribute` <a name="getStringMapAttribute" id="cdktf-local-exec.LocalExec.getStringMapAttribute"></a>
+
+```typescript
+public getStringMapAttribute(terraformAttribute: string): {[ key: string ]: string}
+```
+
+###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="cdktf-local-exec.LocalExec.getStringMapAttribute.parameter.terraformAttribute"></a>
+
+- *Type:* string
+
+---
+
+##### `interpolationForAttribute` <a name="interpolationForAttribute" id="cdktf-local-exec.LocalExec.interpolationForAttribute"></a>
+
+```typescript
+public interpolationForAttribute(terraformAttribute: string): IResolvable
+```
+
+###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="cdktf-local-exec.LocalExec.interpolationForAttribute.parameter.terraformAttribute"></a>
+
+- *Type:* string
+
+---
+
+##### `resetTriggers` <a name="resetTriggers" id="cdktf-local-exec.LocalExec.resetTriggers"></a>
+
+```typescript
+public resetTriggers(): void
+```
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdktf-local-exec.LocalExec.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdktf-local-exec.LocalExec.isTerraformElement">isTerraformElement</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.isTerraformResource">isTerraformResource</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdktf-local-exec.LocalExec.isConstruct"></a>
+
+```typescript
+import { LocalExec } from 'cdktf-local-exec'
+
+LocalExec.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdktf-local-exec.LocalExec.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isTerraformElement` <a name="isTerraformElement" id="cdktf-local-exec.LocalExec.isTerraformElement"></a>
+
+```typescript
+import { LocalExec } from 'cdktf-local-exec'
+
+LocalExec.isTerraformElement(x: any)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="cdktf-local-exec.LocalExec.isTerraformElement.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `isTerraformResource` <a name="isTerraformResource" id="cdktf-local-exec.LocalExec.isTerraformResource"></a>
+
+```typescript
+import { LocalExec } from 'cdktf-local-exec'
+
+LocalExec.isTerraformResource(x: any)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="cdktf-local-exec.LocalExec.isTerraformResource.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`command`](#cdktflocalexeclocalexecpropertycommand)<span title="Required">*</span> | `string` | *No description.* |
-| [`cwd`](#cdktflocalexeclocalexecpropertycwd)<span title="Required">*</span> | `string` | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdktf-local-exec.LocalExec.property.cdktfStack">cdktfStack</a></code> | <code>cdktf.TerraformStack</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.fqn">fqn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.friendlyUniqueId">friendlyUniqueId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.terraformMetaArguments">terraformMetaArguments</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.terraformResourceType">terraformResourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.terraformGeneratorMetadata">terraformGeneratorMetadata</a></code> | <code>cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.connection">connection</a></code> | <code>cdktf.SSHProvisionerConnection \| cdktf.WinrmProvisionerConnection</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.count">count</a></code> | <code>number \| cdktf.TerraformCount</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.dependsOn">dependsOn</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.forEach">forEach</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.provider">provider</a></code> | <code>cdktf.TerraformProvider</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.provisioners">provisioners</a></code> | <code>cdktf.FileProvisioner \| cdktf.LocalExecProvisioner \| cdktf.RemoteExecProvisioner[]</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.triggersInput">triggersInput</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.triggers">triggers</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.command">command</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.cwd">cwd</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `command`<sup>Required</sup> <a name="cdktf-local-exec.LocalExec.property.command" id="cdktflocalexeclocalexecpropertycommand"></a>
+##### `node`<sup>Required</sup> <a name="node" id="cdktf-local-exec.LocalExec.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cdktfStack`<sup>Required</sup> <a name="cdktfStack" id="cdktf-local-exec.LocalExec.property.cdktfStack"></a>
+
+```typescript
+public readonly cdktfStack: TerraformStack;
+```
+
+- *Type:* cdktf.TerraformStack
+
+---
+
+##### `fqn`<sup>Required</sup> <a name="fqn" id="cdktf-local-exec.LocalExec.property.fqn"></a>
+
+```typescript
+public readonly fqn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `friendlyUniqueId`<sup>Required</sup> <a name="friendlyUniqueId" id="cdktf-local-exec.LocalExec.property.friendlyUniqueId"></a>
+
+```typescript
+public readonly friendlyUniqueId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `terraformMetaArguments`<sup>Required</sup> <a name="terraformMetaArguments" id="cdktf-local-exec.LocalExec.property.terraformMetaArguments"></a>
+
+```typescript
+public readonly terraformMetaArguments: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `terraformResourceType`<sup>Required</sup> <a name="terraformResourceType" id="cdktf-local-exec.LocalExec.property.terraformResourceType"></a>
+
+```typescript
+public readonly terraformResourceType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `terraformGeneratorMetadata`<sup>Optional</sup> <a name="terraformGeneratorMetadata" id="cdktf-local-exec.LocalExec.property.terraformGeneratorMetadata"></a>
+
+```typescript
+public readonly terraformGeneratorMetadata: TerraformProviderGeneratorMetadata;
+```
+
+- *Type:* cdktf.TerraformProviderGeneratorMetadata
+
+---
+
+##### `connection`<sup>Optional</sup> <a name="connection" id="cdktf-local-exec.LocalExec.property.connection"></a>
+
+```typescript
+public readonly connection: SSHProvisionerConnection | WinrmProvisionerConnection;
+```
+
+- *Type:* cdktf.SSHProvisionerConnection | cdktf.WinrmProvisionerConnection
+
+---
+
+##### `count`<sup>Optional</sup> <a name="count" id="cdktf-local-exec.LocalExec.property.count"></a>
+
+```typescript
+public readonly count: number | TerraformCount;
+```
+
+- *Type:* number | cdktf.TerraformCount
+
+---
+
+##### `dependsOn`<sup>Optional</sup> <a name="dependsOn" id="cdktf-local-exec.LocalExec.property.dependsOn"></a>
+
+```typescript
+public readonly dependsOn: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `forEach`<sup>Optional</sup> <a name="forEach" id="cdktf-local-exec.LocalExec.property.forEach"></a>
+
+```typescript
+public readonly forEach: ITerraformIterator;
+```
+
+- *Type:* cdktf.ITerraformIterator
+
+---
+
+##### `lifecycle`<sup>Optional</sup> <a name="lifecycle" id="cdktf-local-exec.LocalExec.property.lifecycle"></a>
+
+```typescript
+public readonly lifecycle: TerraformResourceLifecycle;
+```
+
+- *Type:* cdktf.TerraformResourceLifecycle
+
+---
+
+##### `provider`<sup>Optional</sup> <a name="provider" id="cdktf-local-exec.LocalExec.property.provider"></a>
+
+```typescript
+public readonly provider: TerraformProvider;
+```
+
+- *Type:* cdktf.TerraformProvider
+
+---
+
+##### `provisioners`<sup>Optional</sup> <a name="provisioners" id="cdktf-local-exec.LocalExec.property.provisioners"></a>
+
+```typescript
+public readonly provisioners: FileProvisioner | LocalExecProvisioner | RemoteExecProvisioner[];
+```
+
+- *Type:* cdktf.FileProvisioner | cdktf.LocalExecProvisioner | cdktf.RemoteExecProvisioner[]
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdktf-local-exec.LocalExec.property.id"></a>
+
+```typescript
+public readonly id: string;
+```
+
+- *Type:* string
+
+---
+
+##### `triggersInput`<sup>Optional</sup> <a name="triggersInput" id="cdktf-local-exec.LocalExec.property.triggersInput"></a>
+
+```typescript
+public readonly triggersInput: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `triggers`<sup>Required</sup> <a name="triggers" id="cdktf-local-exec.LocalExec.property.triggers"></a>
+
+```typescript
+public readonly triggers: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `command`<sup>Required</sup> <a name="command" id="cdktf-local-exec.LocalExec.property.command"></a>
 
 ```typescript
 public readonly command: string;
 ```
 
-- *Type:* `string`
+- *Type:* string
 
 ---
 
-##### `cwd`<sup>Required</sup> <a name="cdktf-local-exec.LocalExec.property.cwd" id="cdktflocalexeclocalexecpropertycwd"></a>
+##### `cwd`<sup>Required</sup> <a name="cwd" id="cdktf-local-exec.LocalExec.property.cwd"></a>
 
 ```typescript
 public readonly cwd: string;
 ```
 
-- *Type:* `string`
+- *Type:* string
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
 
-### NullProvider <a name="cdktf-local-exec.NullProvider" id="cdktflocalexecnullprovider"></a>
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdktf-local-exec.LocalExec.property.tfResourceType">tfResourceType</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `tfResourceType`<sup>Required</sup> <a name="tfResourceType" id="cdktf-local-exec.LocalExec.property.tfResourceType"></a>
+
+```typescript
+public readonly tfResourceType: string;
+```
+
+- *Type:* string
+
+---
+
+### NullProvider <a name="NullProvider" id="cdktf-local-exec.NullProvider"></a>
 
 Represents a {@link https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs null}.
 
-#### Initializers <a name="cdktf-local-exec.NullProvider.Initializer" id="cdktflocalexecnullproviderinitializer"></a>
+#### Initializers <a name="Initializers" id="cdktf-local-exec.NullProvider.Initializer"></a>
 
 ```typescript
 import { NullProvider } from 'cdktf-local-exec'
@@ -84,23 +599,23 @@ new NullProvider(scope: Construct, id: string, config?: NullProviderConfig)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`scope`](#cdktflocalexecnullproviderparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | The scope in which to define this construct. |
-| [`id`](#cdktflocalexecnullproviderparameterid)<span title="Required">*</span> | `string` | The scoped construct ID. |
-| [`config`](#cdktflocalexecnullproviderparameterconfig) | [`@cdktf/provider-null.provider.NullProviderConfig`](#@cdktf/provider-null.provider.NullProviderConfig) | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | The scope in which to define this construct. |
+| <code><a href="#cdktf-local-exec.NullProvider.Initializer.parameter.id">id</a></code> | <code>string</code> | The scoped construct ID. |
+| <code><a href="#cdktf-local-exec.NullProvider.Initializer.parameter.config">config</a></code> | <code>@cdktf/provider-null.provider.NullProviderConfig</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="cdktf-local-exec.NullProvider.parameter.scope" id="cdktflocalexecnullproviderparameterscope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdktf-local-exec.NullProvider.Initializer.parameter.scope"></a>
 
-- *Type:* [`constructs.Construct`](#constructs.Construct)
+- *Type:* constructs.Construct
 
 The scope in which to define this construct.
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cdktf-local-exec.NullProvider.parameter.id" id="cdktflocalexecnullproviderparameterid"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdktf-local-exec.NullProvider.Initializer.parameter.id"></a>
 
-- *Type:* `string`
+- *Type:* string
 
 The scoped construct ID.
 
@@ -108,75 +623,294 @@ Must be unique amongst siblings in the same scope
 
 ---
 
-##### `config`<sup>Optional</sup> <a name="cdktf-local-exec.NullProvider.parameter.config" id="cdktflocalexecnullproviderparameterconfig"></a>
+##### `config`<sup>Optional</sup> <a name="config" id="cdktf-local-exec.NullProvider.Initializer.parameter.config"></a>
 
-- *Type:* [`@cdktf/provider-null.provider.NullProviderConfig`](#@cdktf/provider-null.provider.NullProviderConfig)
+- *Type:* @cdktf/provider-null.provider.NullProviderConfig
 
 ---
 
-#### Methods <a name="Methods" id="methods"></a>
+#### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| [`resetAlias`](#cdktflocalexecnullproviderresetalias) | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdktf-local-exec.NullProvider.addOverride">addOverride</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
+| <code><a href="#cdktf-local-exec.NullProvider.resetOverrideLogicalId">resetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#cdktf-local-exec.NullProvider.toMetadata">toMetadata</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.toTerraform">toTerraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#cdktf-local-exec.NullProvider.resetAlias">resetAlias</a></code> | *No description.* |
 
 ---
 
-##### `resetAlias` <a name="cdktf-local-exec.NullProvider.resetAlias" id="cdktflocalexecnullproviderresetalias"></a>
+##### `toString` <a name="toString" id="cdktf-local-exec.NullProvider.toString"></a>
 
 ```typescript
-public resetAlias()
+public toString(): string
 ```
 
+Returns a string representation of this construct.
 
-#### Properties <a name="Properties" id="properties"></a>
+##### `addOverride` <a name="addOverride" id="cdktf-local-exec.NullProvider.addOverride"></a>
+
+```typescript
+public addOverride(path: string, value: any): void
+```
+
+###### `path`<sup>Required</sup> <a name="path" id="cdktf-local-exec.NullProvider.addOverride.parameter.path"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdktf-local-exec.NullProvider.addOverride.parameter.value"></a>
+
+- *Type:* any
+
+---
+
+##### `overrideLogicalId` <a name="overrideLogicalId" id="cdktf-local-exec.NullProvider.overrideLogicalId"></a>
+
+```typescript
+public overrideLogicalId(newLogicalId: string): void
+```
+
+Overrides the auto-generated logical ID with a specific ID.
+
+###### `newLogicalId`<sup>Required</sup> <a name="newLogicalId" id="cdktf-local-exec.NullProvider.overrideLogicalId.parameter.newLogicalId"></a>
+
+- *Type:* string
+
+The new logical ID to use for this stack element.
+
+---
+
+##### `resetOverrideLogicalId` <a name="resetOverrideLogicalId" id="cdktf-local-exec.NullProvider.resetOverrideLogicalId"></a>
+
+```typescript
+public resetOverrideLogicalId(): void
+```
+
+Resets a previously passed logical Id to use the auto-generated logical id again.
+
+##### `toMetadata` <a name="toMetadata" id="cdktf-local-exec.NullProvider.toMetadata"></a>
+
+```typescript
+public toMetadata(): any
+```
+
+##### `toTerraform` <a name="toTerraform" id="cdktf-local-exec.NullProvider.toTerraform"></a>
+
+```typescript
+public toTerraform(): any
+```
+
+Adds this resource to the terraform JSON output.
+
+##### `resetAlias` <a name="resetAlias" id="cdktf-local-exec.NullProvider.resetAlias"></a>
+
+```typescript
+public resetAlias(): void
+```
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdktf-local-exec.NullProvider.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdktf-local-exec.NullProvider.isTerraformElement">isTerraformElement</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.isTerraformProvider">isTerraformProvider</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdktf-local-exec.NullProvider.isConstruct"></a>
+
+```typescript
+import { NullProvider } from 'cdktf-local-exec'
+
+NullProvider.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdktf-local-exec.NullProvider.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isTerraformElement` <a name="isTerraformElement" id="cdktf-local-exec.NullProvider.isTerraformElement"></a>
+
+```typescript
+import { NullProvider } from 'cdktf-local-exec'
+
+NullProvider.isTerraformElement(x: any)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="cdktf-local-exec.NullProvider.isTerraformElement.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `isTerraformProvider` <a name="isTerraformProvider" id="cdktf-local-exec.NullProvider.isTerraformProvider"></a>
+
+```typescript
+import { NullProvider } from 'cdktf-local-exec'
+
+NullProvider.isTerraformProvider(x: any)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="cdktf-local-exec.NullProvider.isTerraformProvider.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`aliasInput`](#cdktflocalexecnullproviderpropertyaliasinput) | `string` | *No description.* |
-| [`alias`](#cdktflocalexecnullproviderpropertyalias) | `string` | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdktf-local-exec.NullProvider.property.cdktfStack">cdktfStack</a></code> | <code>cdktf.TerraformStack</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.property.fqn">fqn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.property.friendlyUniqueId">friendlyUniqueId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.property.metaAttributes">metaAttributes</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.property.terraformResourceType">terraformResourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.property.terraformGeneratorMetadata">terraformGeneratorMetadata</a></code> | <code>cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.property.terraformProviderSource">terraformProviderSource</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.property.alias">alias</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.property.aliasInput">aliasInput</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `aliasInput`<sup>Optional</sup> <a name="cdktf-local-exec.NullProvider.property.aliasInput" id="cdktflocalexecnullproviderpropertyaliasinput"></a>
+##### `node`<sup>Required</sup> <a name="node" id="cdktf-local-exec.NullProvider.property.node"></a>
 
 ```typescript
-public readonly aliasInput: string;
+public readonly node: Node;
 ```
 
-- *Type:* `string`
+- *Type:* constructs.Node
+
+The tree node.
 
 ---
 
-##### `alias`<sup>Optional</sup> <a name="cdktf-local-exec.NullProvider.property.alias" id="cdktflocalexecnullproviderpropertyalias"></a>
+##### `cdktfStack`<sup>Required</sup> <a name="cdktfStack" id="cdktf-local-exec.NullProvider.property.cdktfStack"></a>
+
+```typescript
+public readonly cdktfStack: TerraformStack;
+```
+
+- *Type:* cdktf.TerraformStack
+
+---
+
+##### `fqn`<sup>Required</sup> <a name="fqn" id="cdktf-local-exec.NullProvider.property.fqn"></a>
+
+```typescript
+public readonly fqn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `friendlyUniqueId`<sup>Required</sup> <a name="friendlyUniqueId" id="cdktf-local-exec.NullProvider.property.friendlyUniqueId"></a>
+
+```typescript
+public readonly friendlyUniqueId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `metaAttributes`<sup>Required</sup> <a name="metaAttributes" id="cdktf-local-exec.NullProvider.property.metaAttributes"></a>
+
+```typescript
+public readonly metaAttributes: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `terraformResourceType`<sup>Required</sup> <a name="terraformResourceType" id="cdktf-local-exec.NullProvider.property.terraformResourceType"></a>
+
+```typescript
+public readonly terraformResourceType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `terraformGeneratorMetadata`<sup>Optional</sup> <a name="terraformGeneratorMetadata" id="cdktf-local-exec.NullProvider.property.terraformGeneratorMetadata"></a>
+
+```typescript
+public readonly terraformGeneratorMetadata: TerraformProviderGeneratorMetadata;
+```
+
+- *Type:* cdktf.TerraformProviderGeneratorMetadata
+
+---
+
+##### `terraformProviderSource`<sup>Optional</sup> <a name="terraformProviderSource" id="cdktf-local-exec.NullProvider.property.terraformProviderSource"></a>
+
+```typescript
+public readonly terraformProviderSource: string;
+```
+
+- *Type:* string
+
+---
+
+##### `alias`<sup>Optional</sup> <a name="alias" id="cdktf-local-exec.NullProvider.property.alias"></a>
 
 ```typescript
 public readonly alias: string;
 ```
 
-- *Type:* `string`
+- *Type:* string
 
 ---
 
-#### Constants <a name="Constants" id="constants"></a>
+##### `aliasInput`<sup>Optional</sup> <a name="aliasInput" id="cdktf-local-exec.NullProvider.property.aliasInput"></a>
+
+```typescript
+public readonly aliasInput: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`tfResourceType`](#cdktflocalexecnullproviderpropertytfresourcetype)<span title="Required">*</span> | `string` | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.property.tfResourceType">tfResourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `tfResourceType` <a name="cdktf-local-exec.NullProvider.property.tfResourceType" id="cdktflocalexecnullproviderpropertytfresourcetype"></a>
+##### `tfResourceType`<sup>Required</sup> <a name="tfResourceType" id="cdktf-local-exec.NullProvider.property.tfResourceType"></a>
 
-- *Type:* `string`
+```typescript
+public readonly tfResourceType: string;
+```
+
+- *Type:* string
 
 ---
 
-## Structs <a name="Structs" id="structs"></a>
+## Structs <a name="Structs" id="Structs"></a>
 
-### LocalExecConfig <a name="cdktf-local-exec.LocalExecConfig" id="cdktflocalexeclocalexecconfig"></a>
+### LocalExecConfig <a name="LocalExecConfig" id="cdktf-local-exec.LocalExecConfig"></a>
 
-#### Initializer <a name="[object Object].Initializer" id="object-objectinitializer"></a>
+#### Initializer <a name="Initializer" id="cdktf-local-exec.LocalExecConfig.Initializer"></a>
 
 ```typescript
 import { LocalExecConfig } from 'cdktf-local-exec'
@@ -184,96 +918,97 @@ import { LocalExecConfig } from 'cdktf-local-exec'
 const localExecConfig: LocalExecConfig = { ... }
 ```
 
-#### Properties <a name="Properties" id="properties"></a>
+#### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`command`](#cdktflocalexeclocalexecconfigpropertycommand)<span title="Required">*</span> | `string` | The command to run. |
-| [`cwd`](#cdktflocalexeclocalexecconfigpropertycwd)<span title="Required">*</span> | `string` | The working directory to run the command in. |
-| [`copyBeforeRun`](#cdktflocalexeclocalexecconfigpropertycopybeforerun) | `boolean` | If set to true, the working directory will be copied to an asset directory. |
-| [`dependsOn`](#cdktflocalexeclocalexecconfigpropertydependson) | [`cdktf.ITerraformDependable`](#cdktf.ITerraformDependable)[] | *No description.* |
-| [`lifecycle`](#cdktflocalexeclocalexecconfigpropertylifecycle) | [`cdktf.TerraformResourceLifecycle`](#cdktf.TerraformResourceLifecycle) | *No description.* |
-| [`provider`](#cdktflocalexeclocalexecconfigpropertyprovider) | [`cdktf.TerraformProvider`](#cdktf.TerraformProvider) | *No description.* |
-| [`triggers`](#cdktflocalexeclocalexecconfigpropertytriggers) | {[ key: string ]: `string`} | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExecConfig.property.command">command</a></code> | <code>string</code> | The command to run. |
+| <code><a href="#cdktf-local-exec.LocalExecConfig.property.cwd">cwd</a></code> | <code>string</code> | The working directory to run the command in. |
+| <code><a href="#cdktf-local-exec.LocalExecConfig.property.copyBeforeRun">copyBeforeRun</a></code> | <code>boolean</code> | If set to true, the working directory will be copied to an asset directory. |
+| <code><a href="#cdktf-local-exec.LocalExecConfig.property.dependsOn">dependsOn</a></code> | <code>cdktf.ITerraformDependable[]</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExecConfig.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExecConfig.property.provider">provider</a></code> | <code>cdktf.TerraformProvider</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExecConfig.property.triggers">triggers</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
 
 ---
 
-##### `command`<sup>Required</sup> <a name="cdktf-local-exec.LocalExecConfig.property.command" id="cdktflocalexeclocalexecconfigpropertycommand"></a>
+##### `command`<sup>Required</sup> <a name="command" id="cdktf-local-exec.LocalExecConfig.property.command"></a>
 
 ```typescript
 public readonly command: string;
 ```
 
-- *Type:* `string`
+- *Type:* string
 
 The command to run.
 
 ---
 
-##### `cwd`<sup>Required</sup> <a name="cdktf-local-exec.LocalExecConfig.property.cwd" id="cdktflocalexeclocalexecconfigpropertycwd"></a>
+##### `cwd`<sup>Required</sup> <a name="cwd" id="cdktf-local-exec.LocalExecConfig.property.cwd"></a>
 
 ```typescript
 public readonly cwd: string;
 ```
 
-- *Type:* `string`
+- *Type:* string
 
 The working directory to run the command in.
 
-Defaults to process.pwd(). If copyBeforeRun is set to true it will copy the working directory to an asset directory and take that as the base to run.
+Defaults to process.pwd().
+If copyBeforeRun is set to true it will copy the working directory to an asset directory and take that as the base to run.
 
 ---
 
-##### `copyBeforeRun`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecConfig.property.copyBeforeRun" id="cdktflocalexeclocalexecconfigpropertycopybeforerun"></a>
+##### `copyBeforeRun`<sup>Optional</sup> <a name="copyBeforeRun" id="cdktf-local-exec.LocalExecConfig.property.copyBeforeRun"></a>
 
 ```typescript
 public readonly copyBeforeRun: boolean;
 ```
 
-- *Type:* `boolean`
+- *Type:* boolean
 - *Default:* true
 
 If set to true, the working directory will be copied to an asset directory.
 
 ---
 
-##### `dependsOn`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecConfig.property.dependsOn" id="cdktflocalexeclocalexecconfigpropertydependson"></a>
+##### `dependsOn`<sup>Optional</sup> <a name="dependsOn" id="cdktf-local-exec.LocalExecConfig.property.dependsOn"></a>
 
 ```typescript
 public readonly dependsOn: ITerraformDependable[];
 ```
 
-- *Type:* [`cdktf.ITerraformDependable`](#cdktf.ITerraformDependable)[]
+- *Type:* cdktf.ITerraformDependable[]
 
 ---
 
-##### `lifecycle`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecConfig.property.lifecycle" id="cdktflocalexeclocalexecconfigpropertylifecycle"></a>
+##### `lifecycle`<sup>Optional</sup> <a name="lifecycle" id="cdktf-local-exec.LocalExecConfig.property.lifecycle"></a>
 
 ```typescript
 public readonly lifecycle: TerraformResourceLifecycle;
 ```
 
-- *Type:* [`cdktf.TerraformResourceLifecycle`](#cdktf.TerraformResourceLifecycle)
+- *Type:* cdktf.TerraformResourceLifecycle
 
 ---
 
-##### `provider`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecConfig.property.provider" id="cdktflocalexeclocalexecconfigpropertyprovider"></a>
+##### `provider`<sup>Optional</sup> <a name="provider" id="cdktf-local-exec.LocalExecConfig.property.provider"></a>
 
 ```typescript
 public readonly provider: TerraformProvider;
 ```
 
-- *Type:* [`cdktf.TerraformProvider`](#cdktf.TerraformProvider)
+- *Type:* cdktf.TerraformProvider
 
 ---
 
-##### `triggers`<sup>Optional</sup> <a name="cdktf-local-exec.LocalExecConfig.property.triggers" id="cdktflocalexeclocalexecconfigpropertytriggers"></a>
+##### `triggers`<sup>Optional</sup> <a name="triggers" id="cdktf-local-exec.LocalExecConfig.property.triggers"></a>
 
 ```typescript
 public readonly triggers: {[ key: string ]: string};
 ```
 
-- *Type:* {[ key: string ]: `string`}
+- *Type:* {[ key: string ]: string}
 
 ---
 
