@@ -36,7 +36,7 @@ const project = new ConstructLibraryCdktf({
     name: "team-tf-cdk",
     email: "github-team-tf-cdk@hashicorp.com",
   },
-  cdktfVersion: "0.18.0",
+  cdktfVersion: "0.19.0",
   mergify: false,
   depsUpgradeOptions: {
     workflowOptions: {
@@ -61,7 +61,7 @@ new Automerge(project);
 new UpgradeCDKTF(project);
 
 project.addPeerDeps(
-  "cdktf@>=0.18.0",
+  "cdktf@>=0.19.0",
   "@cdktf/provider-null@>=8.0.0",
   "constructs@^10.0.25"
 );
