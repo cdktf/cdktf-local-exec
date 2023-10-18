@@ -2,7 +2,7 @@
   "dependencies": [
     {
       "name": "@cdktf/provider-random",
-      "version": ">=9.0.0",
+      "version": ">=10.0.0",
       "type": "build"
     },
     {
@@ -113,7 +113,7 @@
     },
     {
       "name": "@cdktf/provider-null",
-      "version": ">=8.0.0",
+      "version": ">=9.0.0",
       "type": "peer"
     },
     {
