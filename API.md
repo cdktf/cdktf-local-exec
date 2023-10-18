@@ -89,6 +89,7 @@ new LocalExec(scope: Construct, id: string, config: LocalExecConfig)
 | <code><a href="#cdktf-local-exec.LocalExec.resetOverrideLogicalId">resetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
 | <code><a href="#cdktf-local-exec.LocalExec.toMetadata">toMetadata</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.toTerraform">toTerraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#cdktf-local-exec.LocalExec.addMoveTarget">addMoveTarget</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
 | <code><a href="#cdktf-local-exec.LocalExec.getAnyMapAttribute">getAnyMapAttribute</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.getBooleanAttribute">getBooleanAttribute</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.getBooleanMapAttribute">getBooleanMapAttribute</a></code> | *No description.* |
@@ -98,7 +99,9 @@ new LocalExec(scope: Construct, id: string, config: LocalExecConfig)
 | <code><a href="#cdktf-local-exec.LocalExec.getNumberMapAttribute">getNumberMapAttribute</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.getStringAttribute">getStringAttribute</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.getStringMapAttribute">getStringMapAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.importFrom">importFrom</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.interpolationForAttribute">interpolationForAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.moveTo">moveTo</a></code> | Moves this resource to the target resource given by moveTarget. |
 | <code><a href="#cdktf-local-exec.LocalExec.resetTriggers">resetTriggers</a></code> | *No description.* |
 
 ---
@@ -166,6 +169,22 @@ public toTerraform(): any
 ```
 
 Adds this resource to the terraform JSON output.
+
+##### `addMoveTarget` <a name="addMoveTarget" id="cdktf-local-exec.LocalExec.addMoveTarget"></a>
+
+```typescript
+public addMoveTarget(moveTarget: string): void
+```
+
+Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="cdktf-local-exec.LocalExec.addMoveTarget.parameter.moveTarget"></a>
+
+- *Type:* string
+
+The string move target that will correspond to this resource.
+
+---
 
 ##### `getAnyMapAttribute` <a name="getAnyMapAttribute" id="cdktf-local-exec.LocalExec.getAnyMapAttribute"></a>
 
@@ -275,6 +294,24 @@ public getStringMapAttribute(terraformAttribute: string): {[ key: string ]: stri
 
 ---
 
+##### `importFrom` <a name="importFrom" id="cdktf-local-exec.LocalExec.importFrom"></a>
+
+```typescript
+public importFrom(id: string, provider?: TerraformProvider): void
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdktf-local-exec.LocalExec.importFrom.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `provider`<sup>Optional</sup> <a name="provider" id="cdktf-local-exec.LocalExec.importFrom.parameter.provider"></a>
+
+- *Type:* cdktf.TerraformProvider
+
+---
+
 ##### `interpolationForAttribute` <a name="interpolationForAttribute" id="cdktf-local-exec.LocalExec.interpolationForAttribute"></a>
 
 ```typescript
@@ -284,6 +321,30 @@ public interpolationForAttribute(terraformAttribute: string): IResolvable
 ###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="cdktf-local-exec.LocalExec.interpolationForAttribute.parameter.terraformAttribute"></a>
 
 - *Type:* string
+
+---
+
+##### `moveTo` <a name="moveTo" id="cdktf-local-exec.LocalExec.moveTo"></a>
+
+```typescript
+public moveTo(moveTarget: string, index?: string | number): void
+```
+
+Moves this resource to the target resource given by moveTarget.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="cdktf-local-exec.LocalExec.moveTo.parameter.moveTarget"></a>
+
+- *Type:* string
+
+The previously set user defined string set by .addMoveTarget() corresponding to the resource to move to.
+
+---
+
+###### `index`<sup>Optional</sup> <a name="index" id="cdktf-local-exec.LocalExec.moveTo.parameter.index"></a>
+
+- *Type:* string | number
+
+Optional The index corresponding to the key the resource is to appear in the foreach of a resource to move to.
 
 ---
 
@@ -300,6 +361,7 @@ public resetTriggers(): void
 | <code><a href="#cdktf-local-exec.LocalExec.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdktf-local-exec.LocalExec.isTerraformElement">isTerraformElement</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.isTerraformResource">isTerraformResource</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.generateConfigForImport">generateConfigForImport</a></code> | Generates CDKTF code for importing a Resource resource upon running "cdktf plan <stack-name>". |
 
 ---
 
@@ -346,6 +408,50 @@ LocalExec.isTerraformResource(x: any)
 ###### `x`<sup>Required</sup> <a name="x" id="cdktf-local-exec.LocalExec.isTerraformResource.parameter.x"></a>
 
 - *Type:* any
+
+---
+
+##### `generateConfigForImport` <a name="generateConfigForImport" id="cdktf-local-exec.LocalExec.generateConfigForImport"></a>
+
+```typescript
+import { LocalExec } from 'cdktf-local-exec'
+
+LocalExec.generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: TerraformProvider)
+```
+
+Generates CDKTF code for importing a Resource resource upon running "cdktf plan <stack-name>".
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdktf-local-exec.LocalExec.generateConfigForImport.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The scope in which to define this construct.
+
+---
+
+###### `importToId`<sup>Required</sup> <a name="importToId" id="cdktf-local-exec.LocalExec.generateConfigForImport.parameter.importToId"></a>
+
+- *Type:* string
+
+The construct id used in the generated config for the Resource to import.
+
+---
+
+###### `importFromId`<sup>Required</sup> <a name="importFromId" id="cdktf-local-exec.LocalExec.generateConfigForImport.parameter.importFromId"></a>
+
+- *Type:* string
+
+The id of the existing Resource that should be imported.
+
+Refer to the {@link https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs/resources/resource#import import section} in the documentation of this resource for the id to use
+
+---
+
+###### `provider`<sup>Optional</sup> <a name="provider" id="cdktf-local-exec.LocalExec.generateConfigForImport.parameter.provider"></a>
+
+- *Type:* cdktf.TerraformProvider
+
+? Optional instance of the provider where the Resource to import is found.
 
 ---
 
@@ -720,6 +826,7 @@ public resetAlias(): void
 | <code><a href="#cdktf-local-exec.NullProvider.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdktf-local-exec.NullProvider.isTerraformElement">isTerraformElement</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.NullProvider.isTerraformProvider">isTerraformProvider</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.NullProvider.generateConfigForImport">generateConfigForImport</a></code> | Generates CDKTF code for importing a NullProvider resource upon running "cdktf plan <stack-name>". |
 
 ---
 
@@ -766,6 +873,50 @@ NullProvider.isTerraformProvider(x: any)
 ###### `x`<sup>Required</sup> <a name="x" id="cdktf-local-exec.NullProvider.isTerraformProvider.parameter.x"></a>
 
 - *Type:* any
+
+---
+
+##### `generateConfigForImport` <a name="generateConfigForImport" id="cdktf-local-exec.NullProvider.generateConfigForImport"></a>
+
+```typescript
+import { NullProvider } from 'cdktf-local-exec'
+
+NullProvider.generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: TerraformProvider)
+```
+
+Generates CDKTF code for importing a NullProvider resource upon running "cdktf plan <stack-name>".
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdktf-local-exec.NullProvider.generateConfigForImport.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The scope in which to define this construct.
+
+---
+
+###### `importToId`<sup>Required</sup> <a name="importToId" id="cdktf-local-exec.NullProvider.generateConfigForImport.parameter.importToId"></a>
+
+- *Type:* string
+
+The construct id used in the generated config for the NullProvider to import.
+
+---
+
+###### `importFromId`<sup>Required</sup> <a name="importFromId" id="cdktf-local-exec.NullProvider.generateConfigForImport.parameter.importFromId"></a>
+
+- *Type:* string
+
+The id of the existing NullProvider that should be imported.
+
+Refer to the {@link https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs#import import section} in the documentation of this resource for the id to use
+
+---
+
+###### `provider`<sup>Optional</sup> <a name="provider" id="cdktf-local-exec.NullProvider.generateConfigForImport.parameter.provider"></a>
+
+- *Type:* cdktf.TerraformProvider
+
+? Optional instance of the provider where the NullProvider to import is found.
 
 ---
 
