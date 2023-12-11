@@ -47,6 +47,7 @@ const project = new ConstructLibraryCdktf({
   projenrcTs: true,
   prettier: true,
   jsiiVersion: "~5.2.0",
+  typescriptVersion: "~5.2.0", // should always be the same major/minor as JSII
   publishToPypi: {
     distName: name,
     module: name.replace(/-/g, "_"),
