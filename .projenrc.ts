@@ -23,6 +23,8 @@ const githubActionPinnedVersions = {
   "peter-evans/create-pull-request": "153407881ec5c347639a548ade7d8ad1d6740e38", // v5.0.2
 };
 
+const constructsVersion = "10.3.0";
+
 const project = new ConstructLibraryCdktf({
   author: "HashiCorp",
   authorAddress: "https://hashicorp.com",
@@ -37,6 +39,7 @@ const project = new ConstructLibraryCdktf({
     email: "github-team-tf-cdk@hashicorp.com",
   },
   cdktfVersion: "0.20.0",
+  constructsVersion,
   mergify: false,
   depsUpgradeOptions: {
     workflowOptions: {
@@ -63,10 +66,10 @@ new UpgradeCDKTF(project);
 
 project.addPeerDeps(
   "cdktf@>=0.20.0",
-  "@cdktf/provider-null@>=9.0.0",
-  "constructs@^10.0.25"
+  "@cdktf/provider-null@>=10.0.0",
+  "constructs@>=" + constructsVersion
 );
-project.addDevDeps("ts-node@10.9.1", "@cdktf/provider-random@>=10.0.0");
+project.addDevDeps("ts-node@10.9.1", "@cdktf/provider-random@>=11.0.0");
 
 project.addPackageIgnore("scripts");
 project.addPackageIgnore("projenrc");

@@ -302,15 +302,15 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdktf/provider-null@9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-9.0.0.tgz#ee33adc837076ce9f9a54252c846a6344c5abedb"
-  integrity sha512-5osel2UvwtB2RaOHECFvane43E4RbhOLzhrRUGJjoPCpb2E7LT8vrq4r9nA098BQvxGHPWtE+YR5OsvWUH5ouA==
-
-"@cdktf/provider-random@>=10.0.0":
+"@cdktf/provider-null@10.0.0":
   version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-10.0.0.tgz#8eb614ff2159a07b7d2664a5d77bcbcf40da5043"
-  integrity sha512-MTOq2+zvmNEbT0v1vpUfGHXxeL1Up7i8IkxjHuVeGPXpXJ+42WzASxTcaO6597IYwTnvpyv6gbTsPQMFHMex2A==
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-null/-/provider-null-10.0.0.tgz#ad045643fbbfbc5cc8566a2bdf37279e5d8ca4f2"
+  integrity sha512-r/2z3N4Z1ADjh4hu3BOyKRcXr0OE1f/b5kh+IdC2BF2dhHVaXGHw2Cvogd+R73PjgBNBv/pZa+wOY16tlgNpaQ==
+
+"@cdktf/provider-random@>=11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-random/-/provider-random-11.0.0.tgz#a6ef70560c45593abace52dd22691bf39da2a338"
+  integrity sha512-08mXxGFxhVpakxDIGwmHfbDB0yScXMV90Sdlg6+sa1GGXIxSARpEq/vqlTs/aqiBeVH358cQEr6OqvgEbgI82g==
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
@@ -1573,12 +1573,7 @@ concat-stream@^2.0.0:
     readable-stream "^3.0.2"
     typedarray "^0.0.6"
 
-constructs@10.0.25:
-  version "10.0.25"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.25.tgz#c2f03fb4da134105fdf5382f4c1557b89d90aeeb"
-  integrity sha512-QxY4A7caIW1tI5ztbdZHKU/nWXiqluujmEVj5xCVhFhoBgOqU4ja3z3zXY4DUn2nf+PLxCjulf+viQ/h9RXB8A==
-
-constructs@^10.0.0:
+constructs@10.3.0, constructs@^10.0.0:
   version "10.3.0"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.3.0.tgz#4c246fce9cf8e77711ad45944e9fbd41f1501965"
   integrity sha512-vbK8i3rIb/xwZxSpTjz3SagHn1qq9BChLEfy5Hf6fB3/2eFbrwt2n9kHwQcS0CPTRBesreeAcsJfMq2229FnbQ==
