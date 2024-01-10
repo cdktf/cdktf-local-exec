@@ -46,6 +46,7 @@ new LocalExec(scope: Construct, id: string, config: LocalExecConfig)
 | <code><a href="#cdktf-local-exec.LocalExec.addOverride">addOverride</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#cdktf-local-exec.LocalExec.resetOverrideLogicalId">resetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#cdktf-local-exec.LocalExec.toHclTerraform">toHclTerraform</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.toMetadata">toMetadata</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.toTerraform">toTerraform</a></code> | Adds this resource to the terraform JSON output. |
 | <code><a href="#cdktf-local-exec.LocalExec.addMoveTarget">addMoveTarget</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
@@ -58,9 +59,12 @@ new LocalExec(scope: Construct, id: string, config: LocalExecConfig)
 | <code><a href="#cdktf-local-exec.LocalExec.getNumberMapAttribute">getNumberMapAttribute</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.getStringAttribute">getStringAttribute</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.getStringMapAttribute">getStringMapAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.hasResourceMove">hasResourceMove</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.importFrom">importFrom</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.interpolationForAttribute">interpolationForAttribute</a></code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.moveFromId">moveFromId</a></code> | Move the resource corresponding to "id" to this resource. |
 | <code><a href="#cdktf-local-exec.LocalExec.moveTo">moveTo</a></code> | Moves this resource to the target resource given by moveTarget. |
+| <code><a href="#cdktf-local-exec.LocalExec.moveToId">moveToId</a></code> | Moves this resource to the resource corresponding to "id". |
 | <code><a href="#cdktf-local-exec.LocalExec.resetTriggers">resetTriggers</a></code> | *No description.* |
 
 ---
@@ -114,6 +118,12 @@ public resetOverrideLogicalId(): void
 ```
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
+
+##### `toHclTerraform` <a name="toHclTerraform" id="cdktf-local-exec.LocalExec.toHclTerraform"></a>
+
+```typescript
+public toHclTerraform(): any
+```
 
 ##### `toMetadata` <a name="toMetadata" id="cdktf-local-exec.LocalExec.toMetadata"></a>
 
@@ -253,6 +263,12 @@ public getStringMapAttribute(terraformAttribute: string): {[ key: string ]: stri
 
 ---
 
+##### `hasResourceMove` <a name="hasResourceMove" id="cdktf-local-exec.LocalExec.hasResourceMove"></a>
+
+```typescript
+public hasResourceMove(): TerraformResourceMoveByTarget | TerraformResourceMoveById
+```
+
 ##### `importFrom` <a name="importFrom" id="cdktf-local-exec.LocalExec.importFrom"></a>
 
 ```typescript
@@ -283,6 +299,24 @@ public interpolationForAttribute(terraformAttribute: string): IResolvable
 
 ---
 
+##### `moveFromId` <a name="moveFromId" id="cdktf-local-exec.LocalExec.moveFromId"></a>
+
+```typescript
+public moveFromId(id: string): void
+```
+
+Move the resource corresponding to "id" to this resource.
+
+Note that the resource being moved from must be marked as moved using it's instance function.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdktf-local-exec.LocalExec.moveFromId.parameter.id"></a>
+
+- *Type:* string
+
+Full id of resource being moved from, e.g. "aws_s3_bucket.example".
+
+---
+
 ##### `moveTo` <a name="moveTo" id="cdktf-local-exec.LocalExec.moveTo"></a>
 
 ```typescript
@@ -307,6 +341,22 @@ Optional The index corresponding to the key the resource is to appear in the for
 
 ---
 
+##### `moveToId` <a name="moveToId" id="cdktf-local-exec.LocalExec.moveToId"></a>
+
+```typescript
+public moveToId(id: string): void
+```
+
+Moves this resource to the resource corresponding to "id".
+
+###### `id`<sup>Required</sup> <a name="id" id="cdktf-local-exec.LocalExec.moveToId.parameter.id"></a>
+
+- *Type:* string
+
+Full id of resource to move to, e.g. "aws_s3_bucket.example".
+
+---
+
 ##### `resetTriggers` <a name="resetTriggers" id="cdktf-local-exec.LocalExec.resetTriggers"></a>
 
 ```typescript
@@ -324,7 +374,7 @@ public resetTriggers(): void
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdktf-local-exec.LocalExec.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdktf-local-exec.LocalExec.isConstruct"></a>
 
 ```typescript
 import { LocalExec } from 'cdktf-local-exec'
@@ -333,6 +383,20 @@ LocalExec.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdktf-local-exec.LocalExec.isConstruct.parameter.x"></a>
 
@@ -402,7 +466,7 @@ The construct id used in the generated config for the Resource to import.
 
 The id of the existing Resource that should be imported.
 
-Refer to the {@link https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs/resources/resource#import import section} in the documentation of this resource for the id to use
+Refer to the {@link https://registry.terraform.io/providers/hashicorp/null/3.2.2/docs/resources/resource#import import section} in the documentation of this resource for the id to use
 
 ---
 
@@ -652,7 +716,7 @@ public readonly tfResourceType: string;
 
 ### NullProvider <a name="NullProvider" id="cdktf-local-exec.NullProvider"></a>
 
-Represents a {@link https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs null}.
+Represents a {@link https://registry.terraform.io/providers/hashicorp/null/3.2.2/docs null}.
 
 #### Initializers <a name="Initializers" id="cdktf-local-exec.NullProvider.Initializer"></a>
 
@@ -702,6 +766,7 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#cdktf-local-exec.NullProvider.addOverride">addOverride</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.NullProvider.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#cdktf-local-exec.NullProvider.resetOverrideLogicalId">resetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#cdktf-local-exec.NullProvider.toHclTerraform">toHclTerraform</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.NullProvider.toMetadata">toMetadata</a></code> | *No description.* |
 | <code><a href="#cdktf-local-exec.NullProvider.toTerraform">toTerraform</a></code> | Adds this resource to the terraform JSON output. |
 | <code><a href="#cdktf-local-exec.NullProvider.resetAlias">resetAlias</a></code> | *No description.* |
@@ -758,6 +823,12 @@ public resetOverrideLogicalId(): void
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
 
+##### `toHclTerraform` <a name="toHclTerraform" id="cdktf-local-exec.NullProvider.toHclTerraform"></a>
+
+```typescript
+public toHclTerraform(): any
+```
+
 ##### `toMetadata` <a name="toMetadata" id="cdktf-local-exec.NullProvider.toMetadata"></a>
 
 ```typescript
@@ -789,7 +860,7 @@ public resetAlias(): void
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdktf-local-exec.NullProvider.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdktf-local-exec.NullProvider.isConstruct"></a>
 
 ```typescript
 import { NullProvider } from 'cdktf-local-exec'
@@ -798,6 +869,20 @@ NullProvider.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdktf-local-exec.NullProvider.isConstruct.parameter.x"></a>
 
@@ -867,7 +952,7 @@ The construct id used in the generated config for the NullProvider to import.
 
 The id of the existing NullProvider that should be imported.
 
-Refer to the {@link https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs#import import section} in the documentation of this resource for the id to use
+Refer to the {@link https://registry.terraform.io/providers/hashicorp/null/3.2.2/docs#import import section} in the documentation of this resource for the id to use
 
 ---
 
