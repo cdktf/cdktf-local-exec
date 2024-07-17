@@ -158,4 +158,29 @@ describe("LocalExec", () => {
     expect(fs.existsSync(path.resolve(workingDir, "test.txt"))).toBe(true);
     expect(fs.existsSync(path.resolve(__dirname, "test.txt"))).toBe(false);
   });
+
+  describe("default cwd", () => {
+    let oldCwd = process.cwd();
+
+    beforeEach(() => {
+      oldCwd = process.cwd();
+      process.chdir(testdir);
+    });
+
+    afterEach(() => {
+      process.chdir(oldCwd);
+    });
+
+    test("defaults cwd to process.cwd()", () => {
+      // Create a file in the working directory
+      apply((stack) => {
+        new LocalExec(stack, "test", {
+          command: "cp origin.txt test.txt",
+          copyBeforeRun: false,
+        });
+      });
+
+      expect(fs.existsSync(path.resolve(testdir, "test.txt"))).toBe(true);
+    });
+  });
 });
