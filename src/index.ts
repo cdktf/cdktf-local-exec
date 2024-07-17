@@ -39,7 +39,7 @@ export interface LocalExecConfig {
   /**
    * If set to true, the working directory will be copied to an asset directory.
    *
-   * @default true
+   * @default false
    */
   readonly copyBeforeRun?: boolean;
 }
