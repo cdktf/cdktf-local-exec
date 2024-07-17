@@ -501,6 +501,7 @@ Refer to the {@link https://registry.terraform.io/providers/hashicorp/null/3.2.2
 | <code><a href="#cdktf-local-exec.LocalExec.property.triggers">triggers</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.property.command">command</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExec.property.cwd">cwd</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExec.property.onDestroy">onDestroy</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -690,6 +691,16 @@ public readonly command: string;
 
 ```typescript
 public readonly cwd: string;
+```
+
+- *Type:* string
+
+---
+
+##### `onDestroy`<sup>Optional</sup> <a name="onDestroy" id="cdktf-local-exec.LocalExec.property.onDestroy"></a>
+
+```typescript
+public readonly onDestroy: string;
 ```
 
 - *Type:* string
@@ -1122,6 +1133,7 @@ const localExecConfig: LocalExecConfig = { ... }
 | <code><a href="#cdktf-local-exec.LocalExecConfig.property.copyBeforeRun">copyBeforeRun</a></code> | <code>boolean</code> | If set to true, the working directory will be copied to an asset directory. |
 | <code><a href="#cdktf-local-exec.LocalExecConfig.property.dependsOn">dependsOn</a></code> | <code>cdktf.ITerraformDependable[]</code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExecConfig.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
+| <code><a href="#cdktf-local-exec.LocalExecConfig.property.onDestroy">onDestroy</a></code> | <code>string</code> | Command to run at destroy-time. |
 | <code><a href="#cdktf-local-exec.LocalExecConfig.property.provider">provider</a></code> | <code>cdktf.TerraformProvider</code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExecConfig.property.triggers">triggers</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
 
@@ -1184,6 +1196,18 @@ public readonly lifecycle: TerraformResourceLifecycle;
 ```
 
 - *Type:* cdktf.TerraformResourceLifecycle
+
+---
+
+##### `onDestroy`<sup>Optional</sup> <a name="onDestroy" id="cdktf-local-exec.LocalExecConfig.property.onDestroy"></a>
+
+```typescript
+public readonly onDestroy: string;
+```
+
+- *Type:* string
+
+Command to run at destroy-time.
 
 ---
 
