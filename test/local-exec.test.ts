@@ -165,7 +165,6 @@ describe("LocalExec", () => {
     expect(fs.existsSync(path.resolve(__dirname, "test.txt"))).toBe(false);
   });
 
-
   test("can specify a command to run at destroy-time", () => {
     // Create a file in the working directory
     const { destroy } = apply((stack) => {
