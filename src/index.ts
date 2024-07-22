@@ -31,15 +31,16 @@ export interface LocalExecConfig {
 
   /**
    * The working directory to run the command in.
-   * Defaults to process.pwd().
    * If copyBeforeRun is set to true it will copy the working directory to an asset directory and take that as the base to run.
+   *
+   * @default process.cwd()
    */
-  readonly cwd: string;
+  readonly cwd?: string;
 
   /**
    * If set to true, the working directory will be copied to an asset directory.
    *
-   * @default true
+   * @default false
    */
   readonly copyBeforeRun?: boolean;
 
@@ -67,13 +68,15 @@ export class LocalExec extends Resource {
   constructor(scope: Construct, id: string, config: LocalExecConfig) {
     super(scope, id, config);
 
+    const cwd = config.cwd ?? process.cwd();
+
     const workingDir =
       config.copyBeforeRun === true
         ? new TerraformAsset(this, "workingDir", {
-            path: config.cwd,
+            path: cwd,
             type: AssetType.DIRECTORY,
           }).path
-        : config.cwd;
+        : cwd;
 
     this.cwd = workingDir;
     this.command = config.command;

@@ -1129,8 +1129,8 @@ const localExecConfig: LocalExecConfig = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdktf-local-exec.LocalExecConfig.property.command">command</a></code> | <code>string</code> | The command to run. |
-| <code><a href="#cdktf-local-exec.LocalExecConfig.property.cwd">cwd</a></code> | <code>string</code> | The working directory to run the command in. |
 | <code><a href="#cdktf-local-exec.LocalExecConfig.property.copyBeforeRun">copyBeforeRun</a></code> | <code>boolean</code> | If set to true, the working directory will be copied to an asset directory. |
+| <code><a href="#cdktf-local-exec.LocalExecConfig.property.cwd">cwd</a></code> | <code>string</code> | The working directory to run the command in. |
 | <code><a href="#cdktf-local-exec.LocalExecConfig.property.dependsOn">dependsOn</a></code> | <code>cdktf.ITerraformDependable[]</code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExecConfig.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
 | <code><a href="#cdktf-local-exec.LocalExecConfig.property.onDestroy">onDestroy</a></code> | <code>string</code> | Command to run at destroy-time. |
@@ -1151,21 +1151,6 @@ The command to run.
 
 ---
 
-##### `cwd`<sup>Required</sup> <a name="cwd" id="cdktf-local-exec.LocalExecConfig.property.cwd"></a>
-
-```typescript
-public readonly cwd: string;
-```
-
-- *Type:* string
-
-The working directory to run the command in.
-
-Defaults to process.pwd().
-If copyBeforeRun is set to true it will copy the working directory to an asset directory and take that as the base to run.
-
----
-
 ##### `copyBeforeRun`<sup>Optional</sup> <a name="copyBeforeRun" id="cdktf-local-exec.LocalExecConfig.property.copyBeforeRun"></a>
 
 ```typescript
@@ -1173,9 +1158,24 @@ public readonly copyBeforeRun: boolean;
 ```
 
 - *Type:* boolean
-- *Default:* true
+- *Default:* false
 
 If set to true, the working directory will be copied to an asset directory.
+
+---
+
+##### `cwd`<sup>Optional</sup> <a name="cwd" id="cdktf-local-exec.LocalExecConfig.property.cwd"></a>
+
+```typescript
+public readonly cwd: string;
+```
+
+- *Type:* string
+- *Default:* process.cwd()
+
+The working directory to run the command in.
+
+If copyBeforeRun is set to true it will copy the working directory to an asset directory and take that as the base to run.
 
 ---
 
