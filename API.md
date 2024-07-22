@@ -1146,7 +1146,7 @@ public readonly copyBeforeRun: boolean;
 ```
 
 - *Type:* boolean
-- *Default:* true
+- *Default:* false
 
 If set to true, the working directory will be copied to an asset directory.
 
