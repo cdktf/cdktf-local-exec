@@ -24,7 +24,13 @@ const apply = (addConstructs: (scope: Construct) => void) => {
     cwd: outdir,
   });
 
-  return outdir;
+  const destroy = () => {
+    execSync("terraform destroy -auto-approve", {
+      cwd: outdir,
+    });
+  };
+
+  return { outdir, destroy };
 };
 
 const workingDirectoryForAsset = (manifestPath: string, name: string) => {
@@ -61,7 +67,7 @@ describe("LocalExec", () => {
 
   test("runs command inside copy of working directory", () => {
     // Create a file in the stack directory
-    const outdir = apply((stack) => {
+    const { outdir } = apply((stack) => {
       new LocalExec(stack, "myresource", {
         command: `cp ${__filename} test.txt`,
         cwd: __dirname,
@@ -112,7 +118,7 @@ describe("LocalExec", () => {
 
   test("runs command can use token value inside a command", () => {
     const passwordLength = 4;
-    const outdir = apply((stack) => {
+    const { outdir } = apply((stack) => {
       new provider.RandomProvider(stack, "random");
 
       const waiter = new LocalExec(stack, "timer", {
@@ -144,7 +150,7 @@ describe("LocalExec", () => {
 
   test("command can be overwritten", () => {
     // Create a file in the stack directory
-    const outdir = apply((stack) => {
+    const { outdir } = apply((stack) => {
       const exec = new LocalExec(stack, "myresource", {
         command: "ls -la",
         cwd: __dirname,
@@ -157,6 +163,23 @@ describe("LocalExec", () => {
 
     expect(fs.existsSync(path.resolve(workingDir, "test.txt"))).toBe(true);
     expect(fs.existsSync(path.resolve(__dirname, "test.txt"))).toBe(false);
+  });
+
+  test("can specify a command to run at destroy-time", () => {
+    // Create a file in the working directory
+    const { destroy } = apply((stack) => {
+      new LocalExec(stack, "test", {
+        command: "cp origin.txt test.txt",
+        cwd: testdir,
+        onDestroy: "rm test.txt",
+      });
+    });
+
+    expect(fs.existsSync(path.resolve(testdir, "test.txt"))).toBe(true);
+
+    destroy();
+
+    expect(fs.existsSync(path.resolve(testdir, "test.txt"))).toBe(false);
   });
 
   describe("default cwd", () => {

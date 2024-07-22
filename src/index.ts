@@ -43,13 +43,27 @@ export interface LocalExecConfig {
    * @default false
    */
   readonly copyBeforeRun?: boolean;
+
+  /**
+   * Command to run at destroy-time.
+   */
+  readonly onDestroy?: string;
 }
 
 export { NullProvider as Provider } from "@cdktf/provider-null/lib/provider";
 
+interface LocalExecProvisioner {
+  "local-exec": {
+    working_dir: string;
+    command: string;
+    when?: string;
+  };
+}
+
 export class LocalExec extends Resource {
   public cwd: string;
   public command: string;
+  public onDestroy?: string;
 
   constructor(scope: Construct, id: string, config: LocalExecConfig) {
     super(scope, id, config);
@@ -66,8 +80,9 @@ export class LocalExec extends Resource {
 
     this.cwd = workingDir;
     this.command = config.command;
+    this.onDestroy = config.onDestroy;
 
-    this.addOverride("provisioner", [
+    const overrides: LocalExecProvisioner[] = [
       {
         "local-exec": {
           working_dir: workingDir,
@@ -77,6 +92,21 @@ export class LocalExec extends Resource {
           }),
         },
       },
-    ]);
+    ];
+
+    if (typeof this.onDestroy === "string") {
+      overrides.push({
+        "local-exec": {
+          when: "destroy",
+          working_dir: workingDir,
+          command: Lazy.stringValue({
+            // TODO: wrap command to capture stdout and stderr
+            produce: () => this.onDestroy,
+          }),
+        },
+      });
+    }
+
+    this.addOverride("provisioner", overrides);
   }
 }
