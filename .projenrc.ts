@@ -98,7 +98,7 @@ const setupTerraformStep = {
 };
 const buildSteps = (project.buildWorkflow as any).preBuildSteps as JobStep[];
 const releaseSteps = (project.release as any).defaultBranch.workflow.jobs
-      .release.steps;
+  .release.steps;
 buildSteps.push(setupTerraformStep);
 releaseSteps.splice(1, 0, setupTerraformStep);
 
