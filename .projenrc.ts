@@ -10,6 +10,7 @@ import { AutoApprove } from "./projenrc/auto-approve";
 import { Automerge } from "./projenrc/automerge";
 import { CustomizedLicense } from "./projenrc/customized-license";
 import { UpgradeCDKTF } from "./projenrc/upgrade-cdktf";
+import { UpgradeJSIIAndTypeScript } from "./projenrc/upgrade-jsii-typescript";
 
 const name = "cdktf-local-exec";
 
@@ -28,6 +29,8 @@ const githubActionPinnedVersions = {
 };
 
 const constructsVersion = "10.3.0";
+/** JSII and TSII should always use the same major/minor version range */
+const typescriptVersion = "~5.4.0";
 
 const project = new ConstructLibraryCdktf({
   author: "HashiCorp",
@@ -53,8 +56,8 @@ const project = new ConstructLibraryCdktf({
   },
   projenrcTs: true,
   prettier: true,
-  jsiiVersion: "~5.4.0",
-  typescriptVersion: "~5.4.0", // should always be the same major/minor as JSII
+  typescriptVersion,
+  jsiiVersion: typescriptVersion,
   publishToPypi: {
     distName: name,
     module: name.replace(/-/g, "_"),
@@ -67,13 +70,19 @@ new CustomizedLicense(project);
 new AutoApprove(project);
 new Automerge(project);
 new UpgradeCDKTF(project);
+new UpgradeJSIIAndTypeScript(project, typescriptVersion);
 
 project.addPeerDeps(
   "cdktf@>=0.20.0",
   "@cdktf/provider-null@>=10.0.0",
   "constructs@>=" + constructsVersion
 );
-project.addDevDeps("ts-node@10.9.1", "@cdktf/provider-random@>=11.0.0");
+project.addDevDeps(
+  "semver",
+  "@types/semver",
+  "ts-node@10.9.1",
+  "@cdktf/provider-random@>=11.0.0"
+);
 
 project.addPackageIgnore("scripts");
 project.addPackageIgnore("projenrc");
