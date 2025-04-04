@@ -77,12 +77,7 @@ project.addPeerDeps(
   "@cdktf/provider-null@>=10.0.0",
   "constructs@>=" + constructsVersion
 );
-project.addDevDeps(
-  "semver",
-  "@types/semver",
-  "ts-node@10.9.1",
-  "@cdktf/provider-random@>=11.0.0"
-);
+project.addDevDeps("ts-node@10.9.1", "@cdktf/provider-random@>=11.0.0");
 
 project.addPackageIgnore("scripts");
 project.addPackageIgnore("projenrc");
