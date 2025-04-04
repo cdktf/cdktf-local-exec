@@ -78,8 +78,6 @@ project.addPeerDeps(
   "constructs@>=" + constructsVersion
 );
 project.addDevDeps(
-  "semver",
-  "@types/semver",
   "ts-node@10.9.1",
   "@cdktf/provider-random@>=11.0.0"
 );
