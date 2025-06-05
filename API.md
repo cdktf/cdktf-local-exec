@@ -466,7 +466,7 @@ The construct id used in the generated config for the Resource to import.
 
 The id of the existing Resource that should be imported.
 
-Refer to the {@link https://registry.terraform.io/providers/hashicorp/null/3.2.2/docs/resources/resource#import import section} in the documentation of this resource for the id to use
+Refer to the {@link https://registry.terraform.io/providers/hashicorp/null/3.2.4/docs/resources/resource#import import section} in the documentation of this resource for the id to use
 
 ---
 
@@ -727,7 +727,7 @@ public readonly tfResourceType: string;
 
 ### NullProvider <a name="NullProvider" id="cdktf-local-exec.NullProvider"></a>
 
-Represents a {@link https://registry.terraform.io/providers/hashicorp/null/3.2.2/docs null}.
+Represents a {@link https://registry.terraform.io/providers/hashicorp/null/3.2.4/docs null}.
 
 #### Initializers <a name="Initializers" id="cdktf-local-exec.NullProvider.Initializer"></a>
 
@@ -963,7 +963,7 @@ The construct id used in the generated config for the NullProvider to import.
 
 The id of the existing NullProvider that should be imported.
 
-Refer to the {@link https://registry.terraform.io/providers/hashicorp/null/3.2.2/docs#import import section} in the documentation of this resource for the id to use
+Refer to the {@link https://registry.terraform.io/providers/hashicorp/null/3.2.4/docs#import import section} in the documentation of this resource for the id to use
 
 ---
 
