@@ -74,10 +74,10 @@ new UpgradeJSIIAndTypeScript(project, typescriptVersion);
 
 project.addPeerDeps(
   "cdktf@>=0.21.0",
-  "@cdktf/provider-null@>=10.0.0",
+  "@cdktf/provider-null@>=11.0.0",
   "constructs@>=" + constructsVersion
 );
-project.addDevDeps("ts-node@10.9.1", "@cdktf/provider-random@>=11.0.0");
+project.addDevDeps("ts-node@10.9.1", "@cdktf/provider-random@>=12.0.0");
 
 project.addPackageIgnore("scripts");
 project.addPackageIgnore("projenrc");
